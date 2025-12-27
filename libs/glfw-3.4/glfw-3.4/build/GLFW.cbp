@@ -1,0 +1,1772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="GLFW"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\CMake\;CMake Files\src\;CMake Files\examples\;CMake Files\tests\;CMake Files\docs\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uninstall">
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 uninstall"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="glfw">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/libglfw3.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GLFW_WIN32"/>
+					<Add option="-DUNICODE"/>
+					<Add option="-D_UNICODE"/>
+					<Add option="-DWINVER=0x0501"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 glfw"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="glfw/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/libglfw3.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GLFW_WIN32"/>
+					<Add option="-DUNICODE"/>
+					<Add option="-D_UNICODE"/>
+					<Add option="-DWINVER=0x0501"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 glfw/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="update_mappings">
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 update_mappings"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="boing">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/boing.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 boing"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="boing/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/boing.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 boing/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gears">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/gears.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 gears"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gears/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/gears.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 gears/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="heightmap">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/heightmap.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 heightmap"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="heightmap/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/heightmap.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 heightmap/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="offscreen">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/offscreen.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 offscreen"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="offscreen/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/offscreen.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 offscreen/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="particles">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/particles.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 particles"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="particles/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/particles.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 particles/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sharing">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/sharing.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 sharing"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="sharing/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/sharing.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 sharing/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="splitview">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/splitview.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 splitview"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="splitview/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/splitview.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 splitview/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="triangle-opengl">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/triangle-opengl.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 triangle-opengl"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="triangle-opengl/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/triangle-opengl.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 triangle-opengl/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="triangle-opengles">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/triangle-opengles.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 triangle-opengles"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="triangle-opengles/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/triangle-opengles.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 triangle-opengles/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="wave">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/wave.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 wave"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="wave/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/wave.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 wave/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="windows">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/windows.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 windows"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="windows/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/windows.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 windows/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/examples/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="allocator">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/allocator.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 allocator"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="allocator/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/allocator.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 allocator/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="clipboard">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/clipboard.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clipboard"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="clipboard/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/clipboard.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clipboard/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="events">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/events.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 events"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="events/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/events.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 events/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="msaa">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/msaa.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 msaa"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="msaa/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/msaa.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 msaa/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="glfwinfo">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/glfwinfo.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 glfwinfo"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="glfwinfo/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/glfwinfo.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 glfwinfo/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iconify">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/iconify.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 iconify"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iconify/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/iconify.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 iconify/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="monitors">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/monitors.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 monitors"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="monitors/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/monitors.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 monitors/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="reopen">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/reopen.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 reopen"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="reopen/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/reopen.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 reopen/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cursor">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/cursor.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 cursor"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cursor/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/cursor.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 cursor/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="empty">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/empty.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 empty"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="empty/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/empty.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 empty/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gamma">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/gamma.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 gamma"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gamma/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/gamma.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 gamma/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="icon">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/icon.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 icon"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="icon/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/icon.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 icon/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="inputlag">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/inputlag.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 inputlag"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="inputlag/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/inputlag.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 inputlag/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="joysticks">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/joysticks.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 joysticks"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="joysticks/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/joysticks.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 joysticks/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tearing">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/tearing.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 tearing"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tearing/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/tearing.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 tearing/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="threads">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/threads.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 threads"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="threads/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/threads.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 threads/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="timeout">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/timeout.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 timeout"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="timeout/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/timeout.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 timeout/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="title">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/title.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 title"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="title/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/title.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 title/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="triangle-vulkan">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/triangle-vulkan.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 triangle-vulkan"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="triangle-vulkan/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/triangle-vulkan.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 triangle-vulkan/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="window">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/window.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 window"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="window/fast">
+				<Option output="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/window.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps"/>
+					<Add directory="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../include"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"/>
+					<Add directory="C:/Program Files/CodeBlocks/MinGW/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 window/fast"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/tests/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="docs">
+				<Option working_dir="D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/docs"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/docs/Makefile&quot;  VERBOSE=1 docs"/>
+					<CompileFile command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/docs/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/docs/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;D:/OpenGlStuff/glfw-3.4/glfw-3.4/build/docs/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/CMake/GenerateMappings.cmake">
+			<Option target="update_mappings"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps/getopt.c">
+			<Option target="particles"/>
+			<Option target="clipboard"/>
+			<Option target="events"/>
+			<Option target="msaa"/>
+			<Option target="glfwinfo"/>
+			<Option target="iconify"/>
+			<Option target="monitors"/>
+			<Option target="inputlag"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps/getopt.h">
+			<Option target="particles"/>
+			<Option target="clipboard"/>
+			<Option target="events"/>
+			<Option target="msaa"/>
+			<Option target="glfwinfo"/>
+			<Option target="iconify"/>
+			<Option target="monitors"/>
+			<Option target="inputlag"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps/glad/gl.h">
+			<Option target="boing"/>
+			<Option target="gears"/>
+			<Option target="heightmap"/>
+			<Option target="offscreen"/>
+			<Option target="particles"/>
+			<Option target="sharing"/>
+			<Option target="splitview"/>
+			<Option target="triangle-opengl"/>
+			<Option target="wave"/>
+			<Option target="windows"/>
+			<Option target="allocator"/>
+			<Option target="clipboard"/>
+			<Option target="events"/>
+			<Option target="msaa"/>
+			<Option target="glfwinfo"/>
+			<Option target="iconify"/>
+			<Option target="monitors"/>
+			<Option target="reopen"/>
+			<Option target="cursor"/>
+			<Option target="empty"/>
+			<Option target="gamma"/>
+			<Option target="icon"/>
+			<Option target="inputlag"/>
+			<Option target="joysticks"/>
+			<Option target="tearing"/>
+			<Option target="threads"/>
+			<Option target="timeout"/>
+			<Option target="title"/>
+			<Option target="window"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps/glad/gles2.h">
+			<Option target="triangle-opengles"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps/glad/vulkan.h">
+			<Option target="glfwinfo"/>
+			<Option target="triangle-vulkan"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps/tinycthread.c">
+			<Option target="particles"/>
+			<Option target="empty"/>
+			<Option target="threads"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/deps/tinycthread.h">
+			<Option target="particles"/>
+			<Option target="empty"/>
+			<Option target="threads"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/docs/html/index.html">
+			<Option target="docs"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/boing.c">
+			<Option target="boing"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/gears.c">
+			<Option target="gears"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/glfw.rc">
+			<Option target="boing"/>
+			<Option target="gears"/>
+			<Option target="heightmap"/>
+			<Option target="offscreen"/>
+			<Option target="particles"/>
+			<Option target="sharing"/>
+			<Option target="splitview"/>
+			<Option target="triangle-opengl"/>
+			<Option target="triangle-opengles"/>
+			<Option target="wave"/>
+			<Option target="windows"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/heightmap.c">
+			<Option target="heightmap"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/offscreen.c">
+			<Option target="offscreen"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/particles.c">
+			<Option target="particles"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/sharing.c">
+			<Option target="sharing"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/splitview.c">
+			<Option target="splitview"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/triangle-opengl.c">
+			<Option target="triangle-opengl"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/triangle-opengles.c">
+			<Option target="triangle-opengles"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/wave.c">
+			<Option target="wave"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/windows.c">
+			<Option target="windows"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include/GLFW/glfw3.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/include/GLFW/glfw3native.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/context.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/egl_context.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/init.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/input.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/internal.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/mappings.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/mappings.h.in">
+			<Option target="update_mappings"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/monitor.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/null_init.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/null_joystick.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/null_joystick.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/null_monitor.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/null_platform.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/null_window.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/osmesa_context.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/platform.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/platform.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/vulkan.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/wgl_context.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_init.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_joystick.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_joystick.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_module.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_monitor.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_platform.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_thread.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_thread.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_time.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_time.h">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/win32_window.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/window.c">
+			<Option target="glfw"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/allocator.c">
+			<Option target="allocator"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/clipboard.c">
+			<Option target="clipboard"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/cursor.c">
+			<Option target="cursor"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/empty.c">
+			<Option target="empty"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/events.c">
+			<Option target="events"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/gamma.c">
+			<Option target="gamma"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/glfwinfo.c">
+			<Option target="glfwinfo"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/icon.c">
+			<Option target="icon"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/iconify.c">
+			<Option target="iconify"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/inputlag.c">
+			<Option target="inputlag"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/joysticks.c">
+			<Option target="joysticks"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/monitors.c">
+			<Option target="monitors"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/msaa.c">
+			<Option target="msaa"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/reopen.c">
+			<Option target="reopen"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/tearing.c">
+			<Option target="tearing"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/threads.c">
+			<Option target="threads"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/timeout.c">
+			<Option target="timeout"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/title.c">
+			<Option target="title"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/triangle-vulkan.c">
+			<Option target="triangle-vulkan"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/window.c">
+			<Option target="window"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/CMake/cmake_uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/CMake/glfw3.pc.in">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/CMake/glfw3Config.cmake.in">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/examples/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\examples\"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/tests/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/docs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\docs\"/>
+		</Unit>
+		<Unit filename="D:/OpenGlStuff/glfw-3.4/glfw-3.4/docs/Doxyfile.in">
+			<Option virtualFolder="CMake Files\docs\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
