@@ -4,8 +4,11 @@ in float Height;
 
 out vec4 FragColor;
 
+uniform sampler2D gradient;
+
 void main()
 {
-    float h = (Height + 16)/64.0f;
-    FragColor = vec4(h, h, h, 1.0);
+    float h = (Height + 20)/128.0f;
+    vec3 col = texture(gradient,vec2(h,0.5)).rgb;
+    FragColor = vec4(col, 1.0);
 }

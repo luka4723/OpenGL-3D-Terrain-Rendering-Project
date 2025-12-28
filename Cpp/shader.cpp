@@ -17,20 +17,11 @@ std::string get_file_contents(const char* filename)
     throw std::system_error(errno, std::generic_category(), "Failed to open file");
 }
 
-Shader::Shader(const char* vertexFile, const char* fragmentFile,const char* geometryFile, const char* TCSFile, const char* TESFile)
-{
+Shader::Shader(const char* vertexFile, const char* fragmentFile,const char* geometryFile, const char* TCSFile, const char* TESFile) {
+    ID  = glCreateProgram();
+
     const std::string vertexCode = get_file_contents(vertexFile);
-    const std::string fragmentCode = get_file_contents(fragmentFile);
-    //const std::string geometryCode = get_file_contents(geometryFile);
-    const std::string TCSCode = get_file_contents(TCSFile);
-    const std::string TESCode = get_file_contents(TESFile);
-
     const char* vertexSource = vertexCode.c_str();
-    const char* fragmentSource = fragmentCode.c_str();
-    //const char* geometrySource = geometryCode.c_str();
-    const char* TCSSource = TCSCode.c_str();
-    const char* TESSource = TESCode.c_str();
-
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader,1,&vertexSource,nullptr);
     glCompileShader(vertexShader);
@@ -42,53 +33,70 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile,const char* geom
         glGetShaderInfoLog(vertexShader, 512, nullptr, infoLog);
         std::cerr << "Vertex shader compilation failed:\n" << infoLog << std::endl;
     }
+    glAttachShader(ID, vertexShader);
 
+
+    const std::string fragmentCode = get_file_contents(fragmentFile);
+    const char* fragmentSource = fragmentCode.c_str();
     GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader,1,&fragmentSource,nullptr);
     glCompileShader(fragmentShader);
 
-     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
+    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
     if (!success) {
         glGetShaderInfoLog(fragmentShader, 512, nullptr, infoLog);
         std::cerr << "Fragment shader compilation failed:\n" << infoLog << std::endl;
     }
-
-    // GLuint geometryShader = glCreateShader(GL_FRAGMENT_SHADER);
-    // glShaderSource(geometryShader,1,&geometrySource,nullptr);
-    // glCompileShader(geometryShader);
-    //
-    // glGetShaderiv(geometryShader, GL_COMPILE_STATUS, &success);
-    // if (!success) {
-    //     glGetShaderInfoLog(geometryShader, 512, nullptr, infoLog);
-    //     std::cerr << "Fragment shader compilation failed:\n" << infoLog << std::endl;
-    // }
-
-    GLuint TCSShader = glCreateShader(GL_TESS_CONTROL_SHADER);
-    glShaderSource(TCSShader,1,&TCSSource,nullptr);
-    glCompileShader(TCSShader);
-
-    glGetShaderiv(TCSShader, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(TCSShader, 512, nullptr, infoLog);
-        std::cerr << "Fragment shader compilation failed:\n" << infoLog << std::endl;
-    }
-
-    GLuint TESShader = glCreateShader(GL_TESS_EVALUATION_SHADER);
-    glShaderSource(TESShader,1,&TESSource,nullptr);
-    glCompileShader(TESShader);
-
-    glGetShaderiv(TESShader, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(TESShader, 512, nullptr, infoLog);
-        std::cerr << "Fragment shader compilation failed:\n" << infoLog << std::endl;
-    }
-
-    ID  = glCreateProgram();
-    glAttachShader(ID, vertexShader);
     glAttachShader(ID, fragmentShader);
-    //glAttachShader(ID, geometryShader);
-    glAttachShader(ID, TCSShader);
-    glAttachShader(ID, TESShader);
+
+    if (geometryFile!=nullptr) {
+        const std::string geometryCode = get_file_contents(geometryFile);
+        const char* geometrySource = geometryCode.c_str();
+        GLuint geometryShader = glCreateShader(GL_FRAGMENT_SHADER);
+        glShaderSource(geometryShader,1,&geometrySource,nullptr);
+        glCompileShader(geometryShader);
+
+        glGetShaderiv(geometryShader, GL_COMPILE_STATUS, &success);
+        if (!success) {
+            glGetShaderInfoLog(geometryShader, 512, nullptr, infoLog);
+            std::cerr << "Fragment shader compilation failed:\n" << infoLog << std::endl;
+        }
+        glAttachShader(ID, geometryShader);
+        glDeleteShader(geometryShader);
+    }
+
+    if (TCSFile!=nullptr) {
+        const std::string TCSCode = get_file_contents(TCSFile);
+        const char* TCSSource = TCSCode.c_str();
+        GLuint TCSShader = glCreateShader(GL_TESS_CONTROL_SHADER);
+        glShaderSource(TCSShader,1,&TCSSource,nullptr);
+        glCompileShader(TCSShader);
+
+        glGetShaderiv(TCSShader, GL_COMPILE_STATUS, &success);
+        if (!success) {
+            glGetShaderInfoLog(TCSShader, 512, nullptr, infoLog);
+            std::cerr << "Fragment shader compilation failed:\n" << infoLog << std::endl;
+        }
+        glAttachShader(ID, TCSShader);
+        glDeleteShader(TCSShader);
+    }
+
+    if (TESFile!=nullptr) {
+        const std::string TESCode = get_file_contents(TESFile);
+        const char* TESSource = TESCode.c_str();
+        GLuint TESShader = glCreateShader(GL_TESS_EVALUATION_SHADER);
+        glShaderSource(TESShader,1,&TESSource,nullptr);
+        glCompileShader(TESShader);
+
+        glGetShaderiv(TESShader, GL_COMPILE_STATUS, &success);
+        if (!success) {
+            glGetShaderInfoLog(TESShader, 512, nullptr, infoLog);
+            std::cerr << "Fragment shader compilation failed:\n" << infoLog << std::endl;
+        }
+        glAttachShader(ID, TESShader);
+        glDeleteShader(TESShader);
+    }
+
     glLinkProgram(ID);
 
     glGetProgramiv(ID, GL_LINK_STATUS, &success);
@@ -99,9 +107,6 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile,const char* geom
 
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
-    //glDeleteShader(geometryShader);
-    glDeleteShader(TCSShader);
-    glDeleteShader(TESShader);
 }
 
 void Shader::setBool(const std::string &name, const bool value) const
