@@ -24,7 +24,7 @@ void Model::loadModel(const std::string& path)
         path,
         aiProcess_Triangulate |
         aiProcess_GenSmoothNormals |
-        aiProcess_FlipUVs |
+        //aiProcess_FlipUVs |
         aiProcess_CalcTangentSpace
     );
 

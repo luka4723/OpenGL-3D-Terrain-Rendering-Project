@@ -48,7 +48,6 @@ float dy=-5;
 Texture *cobble_diffuse;
 Texture *cobble_specular;
 Texture *grassTex;
-Texture *skullTex;
 Texture *lisce;
 glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 
@@ -59,23 +58,6 @@ Model *Saloon;
 Model *Celavi;
 Model *Lobanja;
 Model *Drvo;
-
-float front[] = {
-	-1.0f,  1.0f, -1.0f,  0.0f, 1.0f,
-	-1.0f, -1.0f, -1.0f,  0.0f, 0.0f,
-	 1.0f, -1.0f, -1.0f,  1.0f, 0.0f,
-	 1.0f, -1.0f, -1.0f,  1.0f, 0.0f,
-	 1.0f,  1.0f, -1.0f,  1.0f, 1.0f,
-	-1.0f,  1.0f, -1.0f,  0.0f, 1.0f,
-};
-float back[] = {
-	-1.0f, -1.0f,  1.0f,  0.0f, 0.0f,
-	-1.0f,  1.0f,  1.0f,  0.0f, 1.0f,
-	 1.0f,  1.0f,  1.0f,  1.0f, 1.0f,
-	 1.0f,  1.0f,  1.0f,  1.0f, 1.0f,
-	 1.0f, -1.0f,  1.0f,  1.0f, 0.0f,
-	-1.0f, -1.0f,  1.0f,  0.0f, 0.0f,
-};
 
 void processInput(GLFWwindow *window)
 {
@@ -249,7 +231,6 @@ void terrainDataInit() {
 	heightmap = new Texture("Resources/render.png",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 	gradient =  new Texture("Resources/gradient.png",GL_TEXTURE_2D,GL_TEXTURE1,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 	Prozor =  new Texture("Resources/prozor.png",GL_TEXTURE_2D,GL_TEXTURE2,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
-	skullTex =  new Texture("Resources/Skull.jpg",GL_TEXTURE_2D,GL_TEXTURE3,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 	lisce = new Texture("Resources/lisce.jpg",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 
 	gradient->Bind();
@@ -263,7 +244,7 @@ void terrainDataInit() {
 	normalShader = new Shader("Glsls/vShader.glsl","Glsls/fShader.glsl",nullptr,nullptr,nullptr);
 	geomShader = new Shader("Glsls/grayVShader.glsl","Glsls/grayFShader.glsl","Glsls/geomShader.glsl",nullptr,nullptr);
 	skullShader = new Shader("Glsls/grayVShader.glsl","Glsls/grayFShader.glsl",nullptr,nullptr,nullptr);
-	Saloon = new Model("Resources/saloon.obj");
+	Saloon = new Model("Resources/cottage_obj.obj");
 	Celavi  = new Model("Resources/celavi.obj");
 	Lobanja = new Model("Resources/12140_Skull_v3_L2.obj");
 	Drvo = new Model("Resources/drvo.obj");
@@ -335,7 +316,7 @@ void terrainDataInit() {
 	VBO skyboxVBO(skyboxVertices,sizeof(skyboxVertices));
 	skyboxVAO->Bind();
 	VAO::LinkAttrib(skyboxVBO,0,3,GL_FLOAT,5*sizeof(float),nullptr);
-	VAO::LinkAttrib(skyboxVBO,1,2,GL_FLOAT,5*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
+	VAO::LinkAttrib(skyboxVBO,2,2,GL_FLOAT,5*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
 
 	glGenTextures(1, &cubemapTexture);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
@@ -423,7 +404,7 @@ void terrainDataInit() {
 	VBO terrainVBO(terrain_vertices.data(), terrain_vertices.size() * sizeof(float));
     terrainVAO->Bind();
 	VAO::LinkAttrib(terrainVBO,0,3,GL_FLOAT,5*sizeof(float),nullptr);
-	VAO::LinkAttrib(terrainVBO,1,2,GL_FLOAT,5*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
+	VAO::LinkAttrib(terrainVBO,2,2,GL_FLOAT,5*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
 
 	cobble_diffuse = new Texture("Resources/cobble-diffuse.jpg",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_REPEAT,1);
 	//cobble_specular = new Texture("Resources/cobble-specular.jpg",GL_TEXTURE_2D,GL_TEXTURE1,GL_UNSIGNED_BYTE,GL_REPEAT,1);
@@ -490,7 +471,7 @@ void terrainDataInit() {
 	VBO grassVBO(grassVerts, sizeof(grassVerts));
 	grassVAO->Bind();
 	VAO::LinkAttrib(grassVBO,0,3,GL_FLOAT,5*sizeof(float),nullptr);
-	VAO::LinkAttrib(grassVBO,1,2,GL_FLOAT,5*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
+	VAO::LinkAttrib(grassVBO,2,2,GL_FLOAT,5*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
 }
 
 void drawTerrain(double currentFrame) {
@@ -549,8 +530,6 @@ void drawTerrain(double currentFrame) {
 	// 	Drvo->Draw(*skullShader);
 	// }
 
-	lisce->Bind();
-	lisce->texUnit(*normalShader,"texture_diffuse1");
 	for (int i=0; i< trees->size();i++) {
 		normalShader->setMat4("model", trees->at(i));
 		Drvo->Draw(*normalShader);
@@ -630,11 +609,9 @@ void drawModels(double currentFrame) {
 		glStencilFunc(GL_ALWAYS, 1, 0xFF);
 		glStencilMask(0xFF);
 		glm::mat4 model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-40,12,20));
-		model = glm::scale(model, glm::vec3(4.0f, 4.0f, 4.0f));
+		model = glm::translate(model, glm::vec3(-37,7,20));
+		model = glm::scale(model, glm::vec3(1.0f));
 		normalShader->setMat4("model", model);
-		cobble_diffuse->Bind();
-		cobble_diffuse->texUnit(*normalShader,"texture_diffuse1");
 		Saloon->Draw(*normalShader);
 		glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
 		glStencilMask(0x00);
@@ -642,8 +619,8 @@ void drawModels(double currentFrame) {
 		skullShader->setMat4("projection", projection);
 		skullShader->setMat4("view", view);
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-40,12,20));
-		model = glm::scale(model, glm::vec3(4.2f, 4.2f, 4.2f));
+		model = glm::translate(model, glm::vec3(-37,7,20));
+		model = glm::scale(model, glm::vec3(1.03f));
 		skullShader->setMat4("model", model);
 		Saloon->Draw(*skullShader);
 		glStencilMask(0xFF);
@@ -657,15 +634,14 @@ void drawModels(double currentFrame) {
 		else geomShader->setFloat("time", glm::radians(-90.0f));
 		geomShader->setMat4("projection", projection);
 		geomShader->setMat4("view", view);
-		model = glm::translate(model, glm::vec3(5,0,0));
-		model = glm::scale(model, glm::vec3(0.007f, 0.007f, 0.007f));
+		model = glm::translate(model, glm::vec3(20,4,0));
 		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(0.02f));
 		geomShader->setMat4("model", model);
 		Celavi->Draw(*geomShader);
 
 		normalShader->Activate();
-		// skullTex->Bind();
-		// skullTex->texUnit(*normalShader,"texture_diffuse1");
+
 		normalShader->setMat4("projection", projection);
 		normalShader->setMat4("view", view);
 		std::vector<glm::vec3> skullPos = {
@@ -697,7 +673,7 @@ void drawWindows() {
 	glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100000.0f);
 	glm::mat4 view = camera.GetViewMatrix();
 
-	std::vector<std::pair<float, int>> prozoriSorted; // sadrzi sortirane pozicije svakog lica
+	std::vector<std::pair<float, int>> prozoriSorted; //sadrzi sortirane pozicije svakog lica
 	for (int i = 0; i < prozori->size(); i++) {
 		auto windowPos = glm::vec3(prozori->at(i)[3]);
 		float distance = glm::length(camera.Position - windowPos);
