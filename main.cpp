@@ -42,16 +42,16 @@ int main()
 		float groundHeight = getTerrainHeight(camera.Position.x, camera.Position.z);
 
 		camera.Position.y += dy*deltaTime;
-		dy=0;
-		// if (camera.Position.y<groundHeight+0.5f) {
-		// 	camera.Position.y = groundHeight+0.5f;
-		// 	if (camera.Position.y < 4.0f) dy = 0.0f;
-		// 	is_on_ground = true;
-		// }
-		// else {
-		// 	is_on_ground = false;
-		// 	if (camera.Position.y > 4.0f) dy-=0.5f;
-		// }
+		//dy=0;
+		 if (camera.Position.y<groundHeight+0.5f) {
+		 	camera.Position.y = groundHeight+0.5f;
+		 	if (camera.Position.y < 4.0f) dy = 0.0f;
+		 	is_on_ground = true;
+		 }
+		 else {
+		 	is_on_ground = false;
+		 	if (camera.Position.y > 4.0f) dy-=0.5f;
+		 }
 		//printf("%f\n", dy);
 		//printf("%f,%f,%f\n", camera.Position.x, camera.Position.y, camera.Position.z);
 
