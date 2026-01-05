@@ -12,8 +12,10 @@ public:
 	GLenum type;
 	GLenum slot;
 	int width, height, nrChannels;
+	unsigned char* data;
 	Texture(const char* image, GLenum texType, GLenum texSlot, GLenum pixelType, GLenum wrap, int filter);
 
+	void free() const;
 	void texUnit(const Shader& shader, const char* uniform) const;
 	void Bind() const;
 	void Unbind() const;

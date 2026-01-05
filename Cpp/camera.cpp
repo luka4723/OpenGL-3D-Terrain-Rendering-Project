@@ -1,5 +1,6 @@
 #include "camera.hpp"
 #include "glm/gtc/matrix_transform.hpp"
+#include "helper.hpp"
 
 // constructor with vectors
 Camera::Camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch)
@@ -15,7 +16,6 @@ Camera::Camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch)
     updateCameraVectors();
 }
 
-// constructor with scalar values
 Camera::Camera(float posX, float posY, float posZ,
                float upX, float upY, float upZ,
                float yaw, float pitch)
@@ -35,9 +35,24 @@ glm::mat4 Camera::GetViewMatrix() {
     return glm::lookAt(Position, Position + Front, Up);
 }
 
-// processes keyboard input
+// bool Camera::checkCollisions(float x,float y,float z, float v) {
+//     if (y<7.0f && x < -20.0 && x > -60 && z < 40 && z > 0) {
+//         if (x < -19.0 && x > -61) {
+//             if (fabs(-19-x)<-61-x) Position.x = -19;
+//             else Position.x = -61;
+//         }
+//         if (z < 40 && z > 0) {
+//             if (40-z<-z) Position.z = 40;
+//             else Position.z = 0;
+//         }
+//         if (y<7.2f) Position.y = 7.5f;
+//         return false;
+//     }
+//     return true;
+// }
+
 void Camera::ProcessKeyboard(Camera_Movement direction, float deltaTime) {
-    float velocity = MovementSpeed * deltaTime;
+    float velocity = MovementSpeed * deltaTime * is_shift;
     if (direction == FORWARD)
         Position += Front * velocity;
     if (direction == BACKWARD)
@@ -46,6 +61,7 @@ void Camera::ProcessKeyboard(Camera_Movement direction, float deltaTime) {
         Position -= Right * velocity;
     if (direction == RIGHT)
         Position += Right * velocity;
+
 }
 
 // processes mouse movement
@@ -57,10 +73,10 @@ void Camera::ProcessMouseMovement(float xoffset, float yoffset, GLboolean constr
     Pitch += yoffset;
 
     if (constrainPitch) {
-        if (Pitch > 89.0f)
-            Pitch = 89.0f;
-        if (Pitch < -89.0f)
-            Pitch = -89.0f;
+        if (Pitch > 70.0f)
+            Pitch = 70.0f;
+        if (Pitch < -80.0f)
+            Pitch = -80.0f;
     }
 
     updateCameraVectors();

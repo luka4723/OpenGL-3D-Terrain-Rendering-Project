@@ -16,7 +16,7 @@ enum Camera_Movement {
 // Default camera values
 const float YAW         = -90.0f;
 const float PITCH       =  0.0f;
-const float SPEED       =  70.5f;
+const float SPEED       =  70.0f;
 const float SENSITIVITY =  0.1f;
 const float ZOOM        =  45.0f;
 
@@ -51,6 +51,9 @@ public:
 
     // main functions
     glm::mat4 GetViewMatrix();
+
+    //bool checkCollisions(float x, float y, float z);
+
     void ProcessKeyboard(Camera_Movement direction, float deltaTime);
     void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true);
     void ProcessMouseScroll(float yoffset);

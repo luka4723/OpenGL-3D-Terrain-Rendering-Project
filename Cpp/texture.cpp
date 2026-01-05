@@ -7,7 +7,7 @@ Texture::Texture(const char* image, const GLenum texType, const GLenum texSlot, 
 	slot = texSlot;
 
 	stbi_set_flip_vertically_on_load(true);
-	unsigned char* bytes = stbi_load(image, &width, &height, &nrChannels, 0);
+	data = stbi_load(image, &width, &height, &nrChannels, 0);
 
     GLenum format=0;
     if (nrChannels == 1)
@@ -35,13 +35,15 @@ Texture::Texture(const char* image, const GLenum texType, const GLenum texSlot, 
 	glTexParameteri(texType, GL_TEXTURE_WRAP_S, static_cast<GLint>(wrap));
 	glTexParameteri(texType, GL_TEXTURE_WRAP_T, static_cast<GLint>(wrap));
 
-	glTexImage2D(texType, 0, format, width, height, 0, format, pixelType, bytes);
+	glTexImage2D(texType, 0, format, width, height, 0, format, pixelType, data);
 	glGenerateMipmap(texType);
 
-	stbi_image_free(bytes);
 	glBindTexture(texType, 0);
 }
 
+void Texture::free() const {
+	stbi_image_free(data);
+}
 void Texture::texUnit(const Shader &shader, const char* uniform) const {
     shader.Activate();
 	const GLuint texUni = glGetUniformLocation(shader.ID, uniform);

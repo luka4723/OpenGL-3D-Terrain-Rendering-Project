@@ -52,14 +52,14 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile,const char* geom
     if (geometryFile!=nullptr) {
         const std::string geometryCode = get_file_contents(geometryFile);
         const char* geometrySource = geometryCode.c_str();
-        GLuint geometryShader = glCreateShader(GL_FRAGMENT_SHADER);
+        GLuint geometryShader = glCreateShader(GL_GEOMETRY_SHADER);
         glShaderSource(geometryShader,1,&geometrySource,nullptr);
         glCompileShader(geometryShader);
 
         glGetShaderiv(geometryShader, GL_COMPILE_STATUS, &success);
         if (!success) {
             glGetShaderInfoLog(geometryShader, 512, nullptr, infoLog);
-            std::cerr << "Fragment shader compilation failed:\n" << infoLog << std::endl;
+            std::cerr << "Geom shader compilation failed:\n" << infoLog << std::endl;
         }
         glAttachShader(ID, geometryShader);
         glDeleteShader(geometryShader);
