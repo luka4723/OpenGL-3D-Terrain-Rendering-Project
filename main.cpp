@@ -43,8 +43,8 @@ int main()
 
 		camera.Position.y += dy*deltaTime;
 		//dy=0;
-		 if (camera.Position.y<groundHeight+0.5f) {
-		 	camera.Position.y = groundHeight+0.5f;
+		 if (camera.Position.y<groundHeight+1.0f) {
+		 	camera.Position.y = groundHeight+1.0f;
 		 	if (camera.Position.y < 4.0f) dy = 0.0f;
 		 	is_on_ground = true;
 		 }
