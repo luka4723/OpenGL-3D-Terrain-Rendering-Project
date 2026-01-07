@@ -40,5 +40,6 @@ void drawWater(double currentFrame);
 void drawModels(double currentFrame);
 float getTerrainHeight(float worldX, float worldZ);
 void drawWindows();
+void handleY(glm::vec3 pos);
 
 #endif

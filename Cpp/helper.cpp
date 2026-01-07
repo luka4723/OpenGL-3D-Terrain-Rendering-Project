@@ -51,43 +51,65 @@ Texture *grassTex;
 Texture *lisce;
 glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 
-Shader *normalShader;
-Shader *geomShader;
-Shader *skullShader;
-Model *Saloon;
-Model *Celavi;
-Model *Lobanja;
-Model *Drvo;
-Model *Heli;
-Model *Bomba;
+Shader *normalShader= nullptr;
+Shader *geomShader= nullptr;
+Shader *skullShader= nullptr;
+Model *Saloon= nullptr;
+Model *Celavi= nullptr;
+Model *Lobanja= nullptr;
+Model *Drvo= nullptr;
+Model *Heli= nullptr;
+Model *Bomba = nullptr;
 
 glm::mat4 modelTess = glm::scale(glm::mat4(1.0f),glm::vec3(0.2,0.2,0.2));
-glm::mat4 modelSky = glm::translate(glm::mat4(1.0f),glm::vec3(-40,-3,20));
+glm::mat4 modelCobble = glm::translate(glm::mat4(1.0f),glm::vec3(-40,-3,20));
 glm::mat4 modelStencil = glm::translate(glm::mat4(1.0f),glm::vec3(-37,7,20));
 glm::mat4 modelBomba = glm::translate(glm::mat4(1.0f), glm::vec3(25,4,0));
 
 std::vector<std::vector<float>> visine;
+int w,h;
 
-void processInput(GLFWwindow *window)
-{
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-        {
-            if(scale<1.0f) scale+=0.02f;
-        }
-    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-        {
-            if(scale>0.0f) scale-=0.02f;
-        }
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.ProcessKeyboard(FORWARD, deltaTime);
+bool checkTerrain(glm::vec3 pos) {
+
+	printf("GGGG %f, %f, %f\n",pos.x,pos.y,pos.z);
+	if (pos.x > -60.5 && pos.x < -19.5 && pos.z < 40.5 && pos.z > -0.5 && pos.y < 8) {
+
+		return false;
+	}
+	return true;
+}
+void handleY(glm::vec3 pos) {
+	if (pos.y < 8 && !checkTerrain(pos)) {
+		dy=0;
+		pos.y = 8;
+	}
+	else camera.Position.y += dy*deltaTime;
+}
+void processInput(GLFWwindow *window) {
+	float velocity = SPEED * deltaTime * is_shift;
+
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, true);
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+	{
+		glm::vec3 tempPos = camera.Position + camera.Front * velocity;
+		if (checkTerrain(tempPos)) camera.Position = tempPos; //camera.ProcessKeyboard(FORWARD, deltaTime);
+	}
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.ProcessKeyboard(BACKWARD, deltaTime);
+    {
+    	glm::vec3 tempPos = camera.Position - camera.Front * velocity;
+    	if (checkTerrain(tempPos)) camera.Position = tempPos; //camera.ProcessKeyboard(BACKWARD, deltaTime);
+    }
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.ProcessKeyboard(LEFT, deltaTime);
+    {
+    	glm::vec3 tempPos = camera.Position - camera.Right * velocity;
+    	if (checkTerrain(tempPos)) camera.Position = tempPos; //camera.ProcessKeyboard(LEFT, deltaTime);
+    }
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.ProcessKeyboard(RIGHT, deltaTime);
+    {
+    	glm::vec3 tempPos = camera.Position + camera.Right * velocity;
+    	if (checkTerrain(tempPos)) camera.Position = tempPos; //camera.ProcessKeyboard(RIGHT, deltaTime);
+    }
     if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
     	if (is_on_ground) dy = 12.0f;
 	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
@@ -175,30 +197,34 @@ int windowinit(int width, int height, const char* title)
     return 0;
 }
 
+void precomputeHeightGrid() {
+	if (!heightmap || !heightmap->data) return;
+
+	w = heightmap->width;
+	h = heightmap->height;
+	int ch = heightmap->nrChannels;
+	unsigned char* data = heightmap->data;
+
+	visine.resize(w, std::vector<float>(h));
+
+	for (int z = 0; z < h; z++) {
+		for (int x = 0; x < w; x++) {
+			int index = (z * w + x) * ch;
+			float valY = (ch >= 2) ? (data[index + 1] / 255.0f) : (data[index] / 255.0f); // ako slika nije grayscale uzima druug vrednost (y)
+			visine[x][z] = (valY * 128.0f - 16.0f) * 0.2f;
+		}
+	}
+}
+
 float getTerrainHeight(float worldX, float worldZ) {
-    if (!heightmap || !heightmap->data) return 0.0f;
 
-    unsigned char* data = heightmap->data;
-    int w = heightmap->width;
-    int h = heightmap->height;
-    int ch = heightmap->nrChannels;
-
-    // 1. Izračunaj dimenzije u svetu nakon skaliranja (0.2)
     float worldWidth = w * 0.2f;
     float worldDepth = h * 0.2f;
 
-    // 2. Pomeri world koordinate da počinju od 0,0 (jer je tvoj teren centriran)
-    float terrainX = worldX + (worldWidth / 2.0f);
+    float terrainX = worldX + (worldWidth / 2.0f); // mora da pocinje od 0
     float terrainZ = worldZ + (worldDepth / 2.0f);
 
-    // 3. Provera granica
-    if (terrainX < 0 || terrainX >= worldWidth || terrainZ < 0 || terrainZ >= worldDepth) return 0.0f;
-
-    // 4. Mapiranje na piksele (OVO JE KLJUČNO)
     float gridX = (terrainX / worldWidth) * (w - 1);
-
-    // Često je potrebno obrnuti Z osu jer slike počinju odozgo (0) ka dole (H)
-    // Ako ti visina i dalje nije tačna, probaj: float gridZ = (1.0f - (terrainZ / worldDepth)) * (h - 1);
     float gridZ = (terrainZ / worldDepth) * (h - 1);
 
     int x0 = (int)gridX;
@@ -206,32 +232,15 @@ float getTerrainHeight(float worldX, float worldZ) {
     float fracX = gridX - x0;
     float fracZ = gridZ - z0;
 
-    auto getSample = [&](int x, int z) {
-        x = std::max(0, std::min(x, w - 1));
-        z = std::max(0, std::min(z, h - 1));
-        int index = (z * w + x) * ch;
-
-        // Čitanje Zelenog kanala (Y) kao u shaderu
-        float valY = (ch >= 2) ? (data[index + 1] / 255.0f) : (data[index] / 255.0f);
-
-        // Identificna formula iz shadera
-        return (valY * 128.0f - 16.0f);
-    };
-
-    // Interpolacija
-    float h00 = getSample(x0, z0);
-    float h10 = getSample(x0 + 1, z0);
-    float h01 = getSample(x0, z0 + 1);
-    float h11 = getSample(x0 + 1, z0 + 1);
+	float h00 = visine[x0][z0];
+	float h10 = visine[x0 + 1][z0];
+	float h01 = visine[x0][z0 + 1];
+	float h11 = visine[x0 + 1][z0 + 1];
 
     float topMix = h00 + (h10 - h00) * fracX;
     float botMix = h01 + (h11 - h01) * fracX;
 
-    float unscaledHeight = topMix + (botMix - topMix) * fracZ;
-
-    // 5. FINALNO SKALIRANJE: Pošto si u drawTerrain uradio model = scale(0.2),
-    // i tvoja visina se smanjila za toliko!
-    return unscaledHeight * 0.2f;
+    return topMix + (botMix - topMix) * fracZ;
 }
 
 void terrainDataInit() {
@@ -258,10 +267,12 @@ void terrainDataInit() {
 	Heli  = new Model("Resources/heli/chopper.obj");
 	Bomba = new Model("Resources/bomba/Bomb.obj");
 
-	modelSky = glm::scale(modelSky,glm::vec3(20.0,10.0,20.0));
+	modelCobble = glm::scale(modelCobble,glm::vec3(20.0,10.0,20.0));
 
 	gradient->texUnit(*tessHeightMapShader,"gradient");
 	water->texUnit(*waterShader,"normal_map");
+
+	precomputeHeightGrid();
 
 	float width = heightmap->getWidth();
 	float height = heightmap->getHeight();
@@ -511,7 +522,7 @@ void drawTerrain(double currentFrame) {
 	skyboxVAO->Bind();
 	cobble_diffuse->Bind();
 	cobble_diffuse->texUnit(*normalShader,"texture_diffuse1");
-    normalShader->setMat4("model", modelSky);
+    normalShader->setMat4("model", modelCobble);
 	normalShader->setMat4("view", view);
 	normalShader->setMat4("projection", projection);
 	glDrawArrays(GL_TRIANGLES, 0, 36);

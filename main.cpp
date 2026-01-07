@@ -41,7 +41,7 @@ int main()
 
 		float groundHeight = getTerrainHeight(camera.Position.x, camera.Position.z);
 
-		camera.Position.y += dy*deltaTime;
+		handleY(camera.Position);
 		//dy=0;
 		 if (camera.Position.y<groundHeight+1.0f) {
 		 	camera.Position.y = groundHeight+1.0f;
@@ -53,7 +53,7 @@ int main()
 		 	if (camera.Position.y > 4.0f) dy-=0.5f;
 		 }
 		//printf("%f\n", dy);
-		//printf("%f,%f,%f\n", camera.Position.x, camera.Position.y, camera.Position.z);
+		printf("%f,%f,%f\n", camera.Position.x, camera.Position.y, camera.Position.z);
 
 		drawTerrain(currentFrame);
 		drawModels(currentFrame);
