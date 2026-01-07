@@ -19,7 +19,7 @@ float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
-Camera camera(glm::vec3(0.0f, 50.0f, 5.0f));
+Camera camera(glm::vec3(0.0f, 100.0f, 5.0f));
 bool xray = false;
 float is_shift = 1.0f;
 bool is_on_ground = false;
@@ -49,7 +49,6 @@ Texture *cobble_diffuse;
 Texture *cobble_specular;
 Texture *grassTex;
 Texture *lisce;
-glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 
 Shader *normalShader= nullptr;
 Shader *geomShader= nullptr;
@@ -69,9 +68,17 @@ glm::mat4 modelBomba = glm::translate(glm::mat4(1.0f), glm::vec3(25,4,0));
 std::vector<std::vector<float>> visine;
 int w,h;
 
+glm::vec3 pointLightPositions[4] = {
+	glm::vec3(150,20, 150),
+	glm::vec3(30,20, 180),
+	glm::vec3(-35,20, 80),
+	glm::vec3(-130,20, 45)
+};
+
+
 bool checkTerrain(glm::vec3 pos) {
 
-	printf("GGGG %f, %f, %f\n",pos.x,pos.y,pos.z);
+	//printf("GGGG %f, %f, %f\n",pos.x,pos.y,pos.z);
 	if (pos.x > -60.5 && pos.x < -19.5 && pos.z < 40.5 && pos.z > -0.5 && pos.y < 8) {
 
 		return false;
@@ -242,6 +249,58 @@ float getTerrainHeight(float worldX, float worldZ) {
 
     return topMix + (botMix - topMix) * fracZ;
 }
+void lightInit(Shader shader) {
+	shader.Activate();
+	shader.setVec3("viewPos", camera.Position);
+	shader.setFloat("material.shininess", 32.0f);
+	shader.setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
+    shader.setVec3("dirLight.ambient", 0.1f, 0.1f, 0.1f);
+    shader.setVec3("dirLight.diffuse", 0.0f, 0.0f, 0.0f);
+    shader.setVec3("dirLight.specular", 0.0f, 0.0f, 0.0f);
+
+    shader.setVec3("pointLights[0].position", pointLightPositions[0]);
+    shader.setVec3("pointLights[0].ambient", 0.2f, 0.0f, 0.0f);
+    shader.setVec3("pointLights[0].diffuse", 0.9f, 0.0f, 0.0f);
+    shader.setVec3("pointLights[0].specular", 1.0f, 0.0f, 0.0f);
+    shader.setFloat("pointLights[0].constant", 1.0f);
+    shader.setFloat("pointLights[0].linear", 0.014f);
+    shader.setFloat("pointLights[0].quadratic", 0.0007f);
+
+    shader.setVec3("pointLights[1].position", pointLightPositions[1]);
+    shader.setVec3("pointLights[1].ambient", 0.0f, 0.2f, 0.0f);
+    shader.setVec3("pointLights[1].diffuse", 0.0f, 0.9f, 0.0f);
+    shader.setVec3("pointLights[1].specular", 0.0f, 1.0f, 0.0f);
+    shader.setFloat("pointLights[1].constant", 1.0f);
+    shader.setFloat("pointLights[1].linear", 0.014f);
+    shader.setFloat("pointLights[1].quadratic", 0.0007f);
+
+    shader.setVec3("pointLights[2].position", pointLightPositions[2]);
+    shader.setVec3("pointLights[2].ambient", 0.0f, 0.0f, 0.2f);
+    shader.setVec3("pointLights[2].diffuse", 0.0f, 0.0f, 0.9f);
+    shader.setVec3("pointLights[2].specular", 0.0f, 0.0f, 1.0f);
+    shader.setFloat("pointLights[2].constant", 1.0f);
+    shader.setFloat("pointLights[2].linear", 0.014f);
+    shader.setFloat("pointLights[2].quadratic", 0.0007f);
+
+    shader.setVec3("pointLights[3].position", pointLightPositions[3]);
+    shader.setVec3("pointLights[3].ambient", 0.2f, 0.0f, 0.2f);
+    shader.setVec3("pointLights[3].diffuse", 0.9f, 0.0f, 0.9f);
+    shader.setVec3("pointLights[3].specular", 1.0f, 1.0f, 0.0f);
+    shader.setFloat("pointLights[3].constant", 1.0f);
+    shader.setFloat("pointLights[3].linear", 0.014f);
+    shader.setFloat("pointLights[3].quadratic", 0.0007f);
+
+    shader.setVec3("spotLight.position", camera.Position);
+    shader.setVec3("spotLight.direction", camera.Front);
+    shader.setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
+    shader.setVec3("spotLight.diffuse", 1.0f, 1.0f, 1.0f);
+    shader.setVec3("spotLight.specular", 1.0f, 1.0f, 1.0f);
+    shader.setFloat("spotLight.constant", 1.0f);
+    shader.setFloat("spotLight.linear", 0.014f);
+    shader.setFloat("spotLight.quadratic", 0.032f);
+    shader.setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5f)));
+    shader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(20.0f)));
+}
 
 void terrainDataInit() {
      tessHeightMapShader = new Shader("Glsls/height.vs.glsl","Glsls/height.fs.glsl", nullptr, "Glsls/height.tcs.glsl", "Glsls/height.tes.glsl");
@@ -293,56 +352,57 @@ void terrainDataInit() {
 	VAO::LinkAttrib(waterVBO,0,3,GL_FLOAT,3*sizeof(float),nullptr);
 
 	float skyboxVertices[] = {
-		-1.0f,  1.0f, -1.0f,  0.0f, 1.0f,
-		-1.0f, -1.0f, -1.0f,  0.0f, 0.0f,
-		 1.0f, -1.0f, -1.0f,  1.0f, 0.0f,
-		 1.0f, -1.0f, -1.0f,  1.0f, 0.0f,
-		 1.0f,  1.0f, -1.0f,  1.0f, 1.0f,
-		-1.0f,  1.0f, -1.0f,  0.0f, 1.0f,
+    -1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
+    -1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
+     1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
+     1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
+     1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
+    -1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
 
-		-1.0f, -1.0f,  1.0f,  0.0f, 1.0f,
-		-1.0f, -1.0f, -1.0f,  0.0f, 0.0f,
-		-1.0f,  1.0f, -1.0f,  1.0f, 0.0f,
-		-1.0f,  1.0f, -1.0f,  1.0f, 0.0f,
-		-1.0f,  1.0f,  1.0f,  1.0f, 1.0f,
-		-1.0f, -1.0f,  1.0f,  0.0f, 1.0f,
+    -1.0f, -1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+    -1.0f, -1.0f, -1.0f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
+    -1.0f,  1.0f, -1.0f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+    -1.0f,  1.0f, -1.0f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+    -1.0f,  1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
+    -1.0f, -1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
 
-		 1.0f, -1.0f, -1.0f,  0.0f, 0.0f,
-		 1.0f, -1.0f,  1.0f,  1.0f, 0.0f,
-		 1.0f,  1.0f,  1.0f,  1.0f, 1.0f,
-		 1.0f,  1.0f,  1.0f,  1.0f, 1.0f,
-		 1.0f,  1.0f, -1.0f,  0.0f, 1.0f,
-		 1.0f, -1.0f, -1.0f,  0.0f, 0.0f,
+     1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
+     1.0f, -1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+     1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
+     1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
+     1.0f,  1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+     1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
 
-		-1.0f, -1.0f,  1.0f,  0.0f, 0.0f,
-		-1.0f,  1.0f,  1.0f,  0.0f, 1.0f,
-		 1.0f,  1.0f,  1.0f,  1.0f, 1.0f,
-		 1.0f,  1.0f,  1.0f,  1.0f, 1.0f,
-		 1.0f, -1.0f,  1.0f,  1.0f, 0.0f,
-		-1.0f, -1.0f,  1.0f,  0.0f, 0.0f,
+    -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f,
+    -1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f, 1.0f,
+     1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f,
+     1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f,
+     1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f, 0.0f,
+    -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f,
 
-		-1.0f,  1.0f, -1.0f,  0.0f, 1.0f,
-		 1.0f,  1.0f, -1.0f,  1.0f, 1.0f,
-		 1.0f,  1.0f,  1.0f,  1.0f, 0.0f,
-		 1.0f,  1.0f,  1.0f,  1.0f, 0.0f,
-		-1.0f,  1.0f,  1.0f,  0.0f, 0.0f,
-		-1.0f,  1.0f, -1.0f,  0.0f, 1.0f,
+    -1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
+     1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,
+     1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
+     1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
+    -1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
+    -1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
 
-		-1.0f, -1.0f, -1.0f,  0.0f, 1.0f,
-		-1.0f, -1.0f,  1.0f,  0.0f, 0.0f,
-		 1.0f, -1.0f, -1.0f,  1.0f, 1.0f,
-		 1.0f, -1.0f, -1.0f,  1.0f, 1.0f,
-		-1.0f, -1.0f,  1.0f,  0.0f, 0.0f,
-		 1.0f, -1.0f,  1.0f,  1.0f, 0.0f
-	};
+    -1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
+    -1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
+     1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
+     1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
+    -1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
+     1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f
+};
 
 	skyboxVAO = new VAO();
 	VBO skyboxVBO(skyboxVertices,sizeof(skyboxVertices));
 	skyboxVAO->Bind();
-	VAO::LinkAttrib(skyboxVBO,0,3,GL_FLOAT,5*sizeof(float),nullptr);
-	VAO::LinkAttrib(skyboxVBO,2,2,GL_FLOAT,5*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
+	VAO::LinkAttrib(skyboxVBO,0,3,GL_FLOAT,8*sizeof(float),nullptr);
+     VAO::LinkAttrib(skyboxVBO,1,3,GL_FLOAT,8*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
+     VAO::LinkAttrib(skyboxVBO,2,2,GL_FLOAT,8*sizeof(float),reinterpret_cast<void *>(6 * sizeof(float)));
 
-	glGenTextures(1, &cubemapTexture);
+     glGenTextures(1, &cubemapTexture);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -361,7 +421,6 @@ void terrainDataInit() {
 			"Resources/skybox/bottom.jpg",
 			"Resources/skybox/front.jpg",
 			"Resources/skybox/back.jpg",
-
 		};
 		int width, height, nrChannels;
 		unsigned char* data = stbi_load(facesCubemap[i].c_str(), &width, &height, &nrChannels, 0);
@@ -473,20 +532,21 @@ void terrainDataInit() {
 	}
 
 	float grassVerts[] = {
-		0.0f,  1.0f,  0.0f,  0.0f,  1.0f,
-		0.0f, 0.0f,  0.0f,  0.0f,  0.0f,
-		1.0f, 0.0f,  0.0f,  1.0f,  0.0f,
+		0.0f,  1.0f,  0.0f,0.0f,1.0f,0.0f,  0.0f,  1.0f,
+		0.0f, 0.0f,  0.0f,0.0f,1.0f,0.0f,  0.0f,  0.0f,
+		1.0f, 0.0f,  0.0f,0.0f,1.0f,0.0f,  1.0f,  0.0f,
 
-		0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
-		1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
-		1.0f,  1.0f,  0.0f,  1.0f,  1.0f
+		0.0f,  1.0f,  0.0f,0.0f,1.0f,0.0f,  0.0f, 1.0f,
+		1.0f,  0.0f,  0.0f, 0.0f,1.0f,0.0f, 1.0f,  0.0f,
+		1.0f,  1.0f,  0.0f, 0.0f,1.0f,0.0f, 1.0f,  1.0f
 	};
 
 	grassVAO = new VAO();
 	VBO grassVBO(grassVerts, sizeof(grassVerts));
 	grassVAO->Bind();
-	VAO::LinkAttrib(grassVBO,0,3,GL_FLOAT,5*sizeof(float),nullptr);
-	VAO::LinkAttrib(grassVBO,2,2,GL_FLOAT,5*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
+	VAO::LinkAttrib(grassVBO,0,3,GL_FLOAT,8*sizeof(float),nullptr);
+	VAO::LinkAttrib(grassVBO,1,3,GL_FLOAT,8*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
+	VAO::LinkAttrib(grassVBO,2,2,GL_FLOAT,8*sizeof(float),reinterpret_cast<void *>(6 * sizeof(float)));
 }
 
 void drawTerrain(double currentFrame) {
@@ -501,7 +561,7 @@ void drawTerrain(double currentFrame) {
     skyboxVAO->Bind();
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+    //glDrawArrays(GL_TRIANGLES, 0, 36);
     glBindVertexArray(0);
     glDepthMask(GL_TRUE);
     glDepthFunc(GL_LESS);
@@ -517,8 +577,8 @@ void drawTerrain(double currentFrame) {
 	gradient->Bind();
     glDrawArrays(GL_PATCHES, 0, NUM_PATCH_PTS*rez*rez);
 
+	lightInit(*normalShader);
 
-	normalShader->Activate();
 	skyboxVAO->Bind();
 	cobble_diffuse->Bind();
 	cobble_diffuse->texUnit(*normalShader,"texture_diffuse1");
@@ -542,7 +602,7 @@ void drawTerrain(double currentFrame) {
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 	}
 
-	skullShader->Activate();
+	lightInit(*skullShader);
 	skyboxVAO->Bind();
 	skullShader->setMat4("projection", projection);
 	skullShader->setMat4("view", view);
@@ -575,41 +635,19 @@ void drawWater(double currentFrame) {
 }
 
 void drawModels(double currentFrame) {
-
-	normalShader->Activate();
 	glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
 	glm::mat4 view = camera.GetViewMatrix();
-	normalShader->setMat4("projection", projection);
-	normalShader->setMat4("view", view);
-
-	glEnable(GL_STENCIL_TEST);
-	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
-	glStencilFunc(GL_ALWAYS, 1, 0xFF);
-	glStencilMask(0xFF);
-	normalShader->setMat4("model", modelStencil);
-	Saloon->Draw(*normalShader);
-	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
-	glStencilMask(0x00);
-	skullShader->Activate();
-	skullShader->setMat4("projection", projection);
-	skullShader->setMat4("view", view);
-	skullShader->setMat4("model", glm::scale(modelStencil, glm::vec3(1.03f)));
-	Saloon->Draw(*skullShader);
-	glStencilMask(0xFF);
-	glStencilFunc(GL_ALWAYS, 0, 0xFF);
-	glDisable(GL_STENCIL_TEST);
-
-	geomShader->Activate();
-	if (explode) {
-		geomShader->setFloat("time", glm::radians(-90.0f)+currentFrame-explodeTime);
-	}
-	else geomShader->setFloat("time", glm::radians(-90.0f));
-	geomShader->setMat4("projection", projection);
-	geomShader->setMat4("view", view);
-	geomShader->setMat4("model", modelBomba);
-	Bomba->Draw(*geomShader);
 
 	normalShader->Activate();
+
+	normalShader->Activate();
+	normalShader->setVec3("viewPos", camera.Position);
+	normalShader->setFloat("material.shininess", 32.0f);
+	normalShader->setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
+    normalShader->setVec3("dirLight.ambient", 0.1f, 0.1f, 0.1f);
+    normalShader->setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
+    normalShader->setVec3("dirLight.specular", 1.0f, 1.0f, 1.0f);
+
 
 	normalShader->setMat4("projection", projection);
 	normalShader->setMat4("view", view);
@@ -636,15 +674,46 @@ void drawModels(double currentFrame) {
 		Lobanja->Draw(*normalShader);
 	}
 
-	model = glm::mat4(1.0f);
-	model = glm::translate(model, glm::vec3(cos(currentFrame*0.15)*150,50,sin(currentFrame*0.15)*150));
-	glm::mat4 model3 = glm::rotate(model, glm::radians(180.0f),glm::vec3(0.0f,1.0f,0.0f));
-	model3 = glm::rotate(model3, glm::radians(-((float)currentFrame/42)*360),glm::vec3(0.0f,1.0f,0.0f));
-	normalShader->setMat4("model", model3);
-	Heli->meshes[2].Draw(*normalShader);
-	glm::mat4 model2 = glm::rotate(model,glm::radians((float)currentFrame*500),glm::vec3(0.0,1.0,0.0));
-	normalShader->setMat4("model", model2);
-	Heli->meshes[1].Draw(*normalShader);
+	// model = glm::mat4(1.0f);
+	// model = glm::translate(model, glm::vec3(cos(currentFrame*0.15)*150,50,sin(currentFrame*0.15)*150));
+	// glm::mat4 model3 = glm::rotate(model, glm::radians(180.0f),glm::vec3(0.0f,1.0f,0.0f));
+	// model3 = glm::rotate(model3, glm::radians(-((float)currentFrame/42)*360),glm::vec3(0.0f,1.0f,0.0f));
+	// normalShader->setMat4("model", model3);
+	// Heli->meshes[2].Draw(*normalShader);
+	// glm::mat4 model2 = glm::rotate(model,glm::radians((float)currentFrame*500),glm::vec3(0.0,1.0,0.0));
+	// normalShader->setMat4("model", model2);
+	// Heli->meshes[1].Draw(*normalShader);
+
+	normalShader->setMat4("projection", projection);
+	normalShader->setMat4("view", view);
+
+	glEnable(GL_STENCIL_TEST);
+	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+	glStencilFunc(GL_ALWAYS, 1, 0xFF);
+	glStencilMask(0xFF);
+	normalShader->setMat4("model", modelStencil);
+	Saloon->Draw(*normalShader);
+	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+	glStencilMask(0x00);
+	skullShader->Activate();
+	skullShader->setMat4("projection", projection);
+	skullShader->setMat4("view", view);
+	skullShader->setMat4("model", glm::scale(modelStencil, glm::vec3(1.03f)));
+	Saloon->Draw(*skullShader);
+	glStencilMask(0xFF);
+	glStencilFunc(GL_ALWAYS, 0, 0xFF);
+	glDisable(GL_STENCIL_TEST);
+
+	lightInit(*geomShader);
+
+	if (explode) {
+		geomShader->setFloat("time", glm::radians(-90.0f)+currentFrame-explodeTime);
+	}
+	else geomShader->setFloat("time", glm::radians(-90.0f));
+	geomShader->setMat4("projection", projection);
+	geomShader->setMat4("view", view);
+	geomShader->setMat4("model", modelBomba);
+	Bomba->Draw(*geomShader);
 }
 
 void drawWindows() {
@@ -664,7 +733,25 @@ void drawWindows() {
 				  return a.first > b.first;
 			  });
 
-	normalShader->Activate();
+		normalShader->Activate();
+	normalShader->setVec3("viewPos", camera.Position);
+	normalShader->setFloat("material.shininess", 32.0f);
+	normalShader->setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
+    normalShader->setVec3("dirLight.ambient", 0.3f, 0.3f, 0.3f);
+    normalShader->setVec3("dirLight.diffuse", 0.0f, 0.0f, 0.0f);
+    normalShader->setVec3("dirLight.specular", 0.0f, 0.0f, 0.0f);
+
+    normalShader->setVec3("spotLight.position", camera.Position);
+    normalShader->setVec3("spotLight.direction", camera.Front);
+    normalShader->setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
+    normalShader->setVec3("spotLight.diffuse", 0.0f, 0.0f, 0.0f);
+    normalShader->setVec3("spotLight.specular", 0.0f, 0.0f, 0.0f);
+    normalShader->setFloat("spotLight.constant", 1.0f);
+    normalShader->setFloat("spotLight.linear", 0.014f);
+    normalShader->setFloat("spotLight.quadratic", 0.032f);
+    normalShader->setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5f)));
+    normalShader->setFloat("spotLight.outerCutOff", glm::cos(glm::radians(20.0f)));
+
 	Prozor->Bind();
 	skyboxVAO->Bind();
 	Prozor->texUnit(*normalShader,"texture_diffuse1");

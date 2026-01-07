@@ -25,6 +25,7 @@ void Mesh::Draw(Shader& shader)
 
         std::string number;
         std::string name = textures[i].type;
+        std::string prefix = "material.";
 
         if (name == "texture_diffuse")
             number = std::to_string(diffuseNr++);
@@ -36,7 +37,7 @@ void Mesh::Draw(Shader& shader)
             number = std::to_string(heightNr++);
 
         glUniform1i(
-            glGetUniformLocation(shader.ID, (name + number).c_str()),
+            glGetUniformLocation(shader.ID, (prefix + name + number).c_str()),
             i
         );
 

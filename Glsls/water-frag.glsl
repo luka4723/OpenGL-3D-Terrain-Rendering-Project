@@ -33,4 +33,5 @@ void main()
 	vec3 diffuse_color = mix(vec3(0.02, 0.02, 0.5), vec3(0.4, 0.6, 0.8), sky_colour_factor);
 
 	final_colour = vec4(diffuse_color + vec3(1.0, 0.9, 0.85) * specular_factor, 0.7);
+	final_colour = final_colour*0.6f;
 }
