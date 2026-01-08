@@ -11,6 +11,20 @@ target_include_directories(glad PUBLIC libs/glad/include)
 # ---- GLFW ----
 add_subdirectory(libs/glfw-3.4/glfw-3.4)
 
+# ---- ASSIMP ----
+# Proveravamo compiler i postavljamo lib i dll
+if(MSVC)
+    # MSVC: linkujemo .lib i DLL
+    set(ASSIMP_LIB "${CMAKE_SOURCE_DIR}/libs/Assimp/lib/x64/assimp-vc143-mt.lib")
+    set(ASSIMP_DLL "${CMAKE_SOURCE_DIR}/libs/Assimp/bin/x64/assimp-vc143-mt.dll")
+elseif(MINGW)
+    # MinGW: linkujemo .a i DLL
+    set(ASSIMP_LIB "${CMAKE_SOURCE_DIR}/libs/Assimp/lib/x64/libassimp.a")
+    set(ASSIMP_DLL "${CMAKE_SOURCE_DIR}/libs/Assimp/bin/x64/libassimp.dll")
+else()
+    message(FATAL_ERROR "Unsupported compiler. Only MSVC and MinGW are supported.")
+endif()
+
 # ---- EXECUTABLE ----
 add_executable(${PROJECT_NAME}
         main.cpp
@@ -42,23 +56,35 @@ target_link_libraries(${PROJECT_NAME}
         glad
         glfw
         opengl32
-        # DODAT x64 U PUTANJU (prema tvojoj slici)
-        "${CMAKE_SOURCE_DIR}/libs/Assimp/lib/x64/assimp-vc143-mt.lib"
+        ${ASSIMP_LIB}
+)
+
+# ---- OUTPUT DIRECTORIES ----
+# Sve exe i DLL-ove stavimo u bin folder
+set_target_properties(${PROJECT_NAME} PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 )
 
 # ---- RESOURCES & DLL COPY ----
 add_custom_target(copy_resources ALL
+        # Kreiraj bin folder ako ne postoji
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/bin
+        # Kopiraj Resources
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/Resources
-        ${CMAKE_BINARY_DIR}/Resources
+        ${CMAKE_BINARY_DIR}/bin/Resources
+        # Kopiraj Glsls
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/Glsls
-        ${CMAKE_BINARY_DIR}/Glsls
-
-        # Kopiranje DLL-a (proveri da li je i on u bin/x64 ili samo bin)
+        ${CMAKE_BINARY_DIR}/bin/Glsls
+        # Kopiraj DLL u bin folder
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        ${CMAKE_SOURCE_DIR}/libs/Assimp/bin/x64/assimp-vc143-mt.dll
-        ${CMAKE_BINARY_DIR}/assimp-vc143-mt.dll
+        ${ASSIMP_DLL}
+        ${CMAKE_BINARY_DIR}/bin/
 )
 
 add_dependencies(${PROJECT_NAME} copy_resources)
+
+message(STATUS "Assimp lib: ${ASSIMP_LIB}")
+message(STATUS "Assimp dll: ${ASSIMP_DLL}")
+message(STATUS "Executable and DLLs will go to: ${CMAKE_BINARY_DIR}/bin")

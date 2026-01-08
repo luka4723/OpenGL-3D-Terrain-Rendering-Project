@@ -58,7 +58,6 @@ Shader *normalShader= nullptr;
 Shader *geomShader= nullptr;
 Shader *skullShader= nullptr;
 Model *Saloon= nullptr;
-Model *Celavi= nullptr;
 Model *Lobanja= nullptr;
 Model *Drvo= nullptr;
 Model *Heli= nullptr;
@@ -327,7 +326,6 @@ void terrainDataInit() {
 	lampa = new Texture("Resources/torch.jpg",GL_TEXTURE_2D,GL_TEXTURE3,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 
 	Saloon = new Model("Resources/kuca/cottage_obj.obj");
-	Celavi  = new Model("Resources/celavi.obj");
 	Lobanja = new Model("Resources/skull/12140_Skull_v3_L2.obj");
 	Drvo = new Model("Resources/tree/drvo.obj");
 	Heli  = new Model("Resources/heli/chopper.obj");
