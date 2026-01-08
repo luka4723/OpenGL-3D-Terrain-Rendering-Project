@@ -34,6 +34,8 @@ int NUM_PATCH_PTS = 4;
 Shader *tessHeightMapShader;
 Shader *waterShader;
 Shader *skyShader;
+Shader *lightShader;
+Shader *cobbleShader;
 VAO *skyboxVAO;
 VAO *waterVAO;
 VAO *terrainVAO;
@@ -46,9 +48,11 @@ unsigned int cubemapTexture;
 int rez;
 float dy=-5;
 Texture *cobble_diffuse;
+Texture *cobble_normal;
 Texture *cobble_specular;
 Texture *grassTex;
 Texture *lisce;
+Texture *lampa;
 
 Shader *normalShader= nullptr;
 Shader *geomShader= nullptr;
@@ -205,8 +209,6 @@ int windowinit(int width, int height, const char* title)
 }
 
 void precomputeHeightGrid() {
-	if (!heightmap || !heightmap->data) return;
-
 	w = heightmap->width;
 	h = heightmap->height;
 	int ch = heightmap->nrChannels;
@@ -217,10 +219,11 @@ void precomputeHeightGrid() {
 	for (int z = 0; z < h; z++) {
 		for (int x = 0; x < w; x++) {
 			int index = (z * w + x) * ch;
-			float valY = (ch >= 2) ? (data[index + 1] / 255.0f) : (data[index] / 255.0f); // ako slika nije grayscale uzima druug vrednost (y)
+			float valY = data[index + 1] / 255.0f;
 			visine[x][z] = (valY * 128.0f - 16.0f) * 0.2f;
 		}
 	}
+	printf("precompute uspeo");
 }
 
 float getTerrainHeight(float worldX, float worldZ) {
@@ -252,15 +255,15 @@ float getTerrainHeight(float worldX, float worldZ) {
 void lightInit(Shader shader) {
 	shader.Activate();
 	shader.setVec3("viewPos", camera.Position);
-	shader.setFloat("material.shininess", 32.0f);
+	shader.setFloat("material.shininess", 8.0f);
 	shader.setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
     shader.setVec3("dirLight.ambient", 0.1f, 0.1f, 0.1f);
-    shader.setVec3("dirLight.diffuse", 0.0f, 0.0f, 0.0f);
+    shader.setVec3("dirLight.diffuse", 0.3f, 0.3f, 0.3f);
     shader.setVec3("dirLight.specular", 0.0f, 0.0f, 0.0f);
 
     shader.setVec3("pointLights[0].position", pointLightPositions[0]);
     shader.setVec3("pointLights[0].ambient", 0.2f, 0.0f, 0.0f);
-    shader.setVec3("pointLights[0].diffuse", 0.9f, 0.0f, 0.0f);
+    shader.setVec3("pointLights[0].diffuse", 0.6f, 0.0f, 0.0f);
     shader.setVec3("pointLights[0].specular", 1.0f, 0.0f, 0.0f);
     shader.setFloat("pointLights[0].constant", 1.0f);
     shader.setFloat("pointLights[0].linear", 0.014f);
@@ -268,7 +271,7 @@ void lightInit(Shader shader) {
 
     shader.setVec3("pointLights[1].position", pointLightPositions[1]);
     shader.setVec3("pointLights[1].ambient", 0.0f, 0.2f, 0.0f);
-    shader.setVec3("pointLights[1].diffuse", 0.0f, 0.9f, 0.0f);
+    shader.setVec3("pointLights[1].diffuse", 0.0f, 0.6f, 0.0f);
     shader.setVec3("pointLights[1].specular", 0.0f, 1.0f, 0.0f);
     shader.setFloat("pointLights[1].constant", 1.0f);
     shader.setFloat("pointLights[1].linear", 0.014f);
@@ -276,7 +279,7 @@ void lightInit(Shader shader) {
 
     shader.setVec3("pointLights[2].position", pointLightPositions[2]);
     shader.setVec3("pointLights[2].ambient", 0.0f, 0.0f, 0.2f);
-    shader.setVec3("pointLights[2].diffuse", 0.0f, 0.0f, 0.9f);
+    shader.setVec3("pointLights[2].diffuse", 0.0f, 0.0f, 0.6f);
     shader.setVec3("pointLights[2].specular", 0.0f, 0.0f, 1.0f);
     shader.setFloat("pointLights[2].constant", 1.0f);
     shader.setFloat("pointLights[2].linear", 0.014f);
@@ -284,8 +287,8 @@ void lightInit(Shader shader) {
 
     shader.setVec3("pointLights[3].position", pointLightPositions[3]);
     shader.setVec3("pointLights[3].ambient", 0.2f, 0.0f, 0.2f);
-    shader.setVec3("pointLights[3].diffuse", 0.9f, 0.0f, 0.9f);
-    shader.setVec3("pointLights[3].specular", 1.0f, 1.0f, 0.0f);
+    shader.setVec3("pointLights[3].diffuse", 0.6f, 0.0f, 0.6f);
+    shader.setVec3("pointLights[3].specular", 1.0f, 0.0f, 1.0f);
     shader.setFloat("pointLights[3].constant", 1.0f);
     shader.setFloat("pointLights[3].linear", 0.014f);
     shader.setFloat("pointLights[3].quadratic", 0.0007f);
@@ -309,6 +312,8 @@ void terrainDataInit() {
 	normalShader = new Shader("Glsls/vShader.glsl","Glsls/fShader.glsl",nullptr,nullptr,nullptr);
 	geomShader = new Shader("Glsls/geomVShader.glsl","Glsls/fShader.glsl","Glsls/geomShader.glsl",nullptr,nullptr);
 	skullShader = new Shader("Glsls/grayVShader.glsl","Glsls/grayFShader.glsl",nullptr,nullptr,nullptr);
+	lightShader = new Shader("Glsls/vShader.glsl","Glsls/lightFShader.glsl",nullptr,nullptr,nullptr);
+	cobbleShader = new Shader("Glsls/cobbleVShader.glsl","Glsls/cobbleFShader.glsl",nullptr,nullptr,nullptr);
 
 	heightmap = new Texture("Resources/render.png",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 	gradient =  new Texture("Resources/gradient.png",GL_TEXTURE_2D,GL_TEXTURE1,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
@@ -317,7 +322,9 @@ void terrainDataInit() {
 	water = new Texture("Resources/water-normal2.jpg",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_REPEAT,1);
 	grassTex = new Texture("Resources/grass.png",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 	cobble_diffuse = new Texture("Resources/cobble-diffuse.jpg",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_REPEAT,1);
-	//cobble_specular = new Texture("Resources/cobble-specular.jpg",GL_TEXTURE_2D,GL_TEXTURE1,GL_UNSIGNED_BYTE,GL_REPEAT,1);
+	cobble_normal = new Texture("Resources/cobble-normals.jpg",GL_TEXTURE_2D,GL_TEXTURE1,GL_UNSIGNED_BYTE,GL_REPEAT,1);
+	cobble_specular = new Texture("Resources/cobble-specular.jpg",GL_TEXTURE_2D,GL_TEXTURE2,GL_UNSIGNED_BYTE,GL_REPEAT,1);
+	lampa = new Texture("Resources/torch.jpg",GL_TEXTURE_2D,GL_TEXTURE3,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 
 	Saloon = new Model("Resources/kuca/cottage_obj.obj");
 	Celavi  = new Model("Resources/celavi.obj");
@@ -351,56 +358,62 @@ void terrainDataInit() {
 	waterVAO->Bind();
 	VAO::LinkAttrib(waterVBO,0,3,GL_FLOAT,3*sizeof(float),nullptr);
 
-	float skyboxVertices[] = {
-    -1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
-    -1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
-     1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
-     1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
-     1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
-    -1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
+float skyboxVertices[] = {
+    // Pozicija          Normal            UV        Tangent           Bitangent
+    -1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+    -1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+     1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+     1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+     1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+    -1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
 
-    -1.0f, -1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-    -1.0f, -1.0f, -1.0f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
-    -1.0f,  1.0f, -1.0f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-    -1.0f,  1.0f, -1.0f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-    -1.0f,  1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
-    -1.0f, -1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+    -1.0f, -1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+    -1.0f, -1.0f, -1.0f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+    -1.0f,  1.0f, -1.0f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+    -1.0f,  1.0f, -1.0f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+    -1.0f,  1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  1.0f, 1.0f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+    -1.0f, -1.0f,  1.0f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
 
-     1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
-     1.0f, -1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-     1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
-     1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
-     1.0f,  1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-     1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
+     1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+     1.0f, -1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+     1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+     1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+     1.0f,  1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+     1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
 
-    -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f,
-    -1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f, 1.0f,
-     1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f,
-     1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f,
-     1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f, 0.0f,
-    -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f,
+    -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+    -1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f, 1.0f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+     1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+     1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+     1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f, 0.0f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+    -1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,  0.0f,
 
-    -1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
-     1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,
-     1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
-     1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
-    -1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
-    -1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
+    -1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+     1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+     1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+     1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+    -1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+    -1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,  1.0f,
 
-    -1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
-    -1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
-     1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
-     1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
-    -1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
-     1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f
+    -1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f, -1.0f,
+    -1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f, -1.0f,
+     1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f, -1.0f,
+     1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f, -1.0f,
+    -1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f, -1.0f,
+     1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f, -1.0f
 };
 
 	skyboxVAO = new VAO();
 	VBO skyboxVBO(skyboxVertices,sizeof(skyboxVertices));
-	skyboxVAO->Bind();
-	VAO::LinkAttrib(skyboxVBO,0,3,GL_FLOAT,8*sizeof(float),nullptr);
-     VAO::LinkAttrib(skyboxVBO,1,3,GL_FLOAT,8*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
-     VAO::LinkAttrib(skyboxVBO,2,2,GL_FLOAT,8*sizeof(float),reinterpret_cast<void *>(6 * sizeof(float)));
+	 skyboxVAO->Bind();
+	// VAO::LinkAttrib(skyboxVBO,0,3,GL_FLOAT,8*sizeof(float),nullptr);
+	// VAO::LinkAttrib(skyboxVBO,1,3,GL_FLOAT,8*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
+	// VAO::LinkAttrib(skyboxVBO,2,2,GL_FLOAT,8*sizeof(float),reinterpret_cast<void *>(6 * sizeof(float)));
+	 VAO::LinkAttrib(skyboxVBO,0,3,GL_FLOAT,14*sizeof(float),nullptr);
+      VAO::LinkAttrib(skyboxVBO,1,3,GL_FLOAT,14*sizeof(float),reinterpret_cast<void *>(3 * sizeof(float)));
+      VAO::LinkAttrib(skyboxVBO,2,2,GL_FLOAT,14*sizeof(float),reinterpret_cast<void *>(6 * sizeof(float)));
+     VAO::LinkAttrib(skyboxVBO,3,3,GL_FLOAT,14*sizeof(float),reinterpret_cast<void *>(8 * sizeof(float)));
+     VAO::LinkAttrib(skyboxVBO,4,3,GL_FLOAT,14*sizeof(float),reinterpret_cast<void *>(11 * sizeof(float)));
 
      glGenTextures(1, &cubemapTexture);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
@@ -577,15 +590,50 @@ void drawTerrain(double currentFrame) {
 	gradient->Bind();
     glDrawArrays(GL_PATCHES, 0, NUM_PATCH_PTS*rez*rez);
 
-	lightInit(*normalShader);
+	lightShader->Activate();
+	skyboxVAO->Bind();
+	lightShader->setMat4("projection", projection);
+	lightShader->setMat4("view", view);
+	glm::mat4 model = glm::translate(glm::mat4(1.0f),pointLightPositions[0]);
+	lightShader->setMat4("model", model);
+	lightShader->setVec3("color",glm::vec3(1.0f,0.0f,0.0f));
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+	model = glm::translate(glm::mat4(1.0f),pointLightPositions[1]);
+	lightShader->setMat4("model", model);
+	lightShader->setVec3("color",glm::vec3(0.0f,1.0f,0.0f));
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+	model = glm::translate(glm::mat4(1.0f),pointLightPositions[2]);
+	lightShader->setMat4("model", model);
+	lightShader->setVec3("color",glm::vec3(0.0f,0.0f,1.0f));
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+	model = glm::translate(glm::mat4(1.0f),pointLightPositions[3]);
+	lightShader->setMat4("model", model);
+	lightShader->setVec3("color",glm::vec3(1.0f,0.0f,1.0f));
+	glDrawArrays(GL_TRIANGLES, 0, 36);
 
+	lightInit(*cobbleShader);
 	skyboxVAO->Bind();
 	cobble_diffuse->Bind();
-	cobble_diffuse->texUnit(*normalShader,"texture_diffuse1");
-    normalShader->setMat4("model", modelCobble);
+	cobble_diffuse->texUnit(*cobbleShader,"material.texture_diffuse1");
+	cobble_normal->Bind();
+	cobble_normal->texUnit(*cobbleShader,"material.texture_normal1");
+	cobble_specular->Bind();
+	cobble_specular->texUnit(*cobbleShader,"material.texture_specular1");
+	lampa->Bind();
+	lampa->texUnit(*cobbleShader,"lampa");
+	cobbleShader->setVec2("screen",glm::vec2(SCR_HEIGHT,SCR_HEIGHT));
+	cobbleShader->setVec3("viewPos", camera.Position);
+    cobbleShader->setMat4("model", modelCobble);
+	cobbleShader->setMat4("view", view);
+	cobbleShader->setMat4("projection", projection);
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+
+	lightInit(*normalShader);
+	lampa->Bind();
+	lampa->texUnit(*normalShader,"lampa");
+	normalShader->setVec2("screen",glm::vec2(SCR_HEIGHT,SCR_HEIGHT));
 	normalShader->setMat4("view", view);
 	normalShader->setMat4("projection", projection);
-	glDrawArrays(GL_TRIANGLES, 0, 36);
 
 	for (int i=0; i< trees->size();i++) {
 		normalShader->setMat4("model", trees->at(i));
@@ -603,6 +651,9 @@ void drawTerrain(double currentFrame) {
 	}
 
 	lightInit(*skullShader);
+	lampa->Bind();
+	lampa->texUnit(*skullShader,"lampa");
+	skullShader->setVec2("screen",glm::vec2(SCR_HEIGHT,SCR_HEIGHT));
 	skyboxVAO->Bind();
 	skullShader->setMat4("projection", projection);
 	skullShader->setMat4("view", view);
@@ -674,15 +725,15 @@ void drawModels(double currentFrame) {
 		Lobanja->Draw(*normalShader);
 	}
 
-	// model = glm::mat4(1.0f);
-	// model = glm::translate(model, glm::vec3(cos(currentFrame*0.15)*150,50,sin(currentFrame*0.15)*150));
-	// glm::mat4 model3 = glm::rotate(model, glm::radians(180.0f),glm::vec3(0.0f,1.0f,0.0f));
-	// model3 = glm::rotate(model3, glm::radians(-((float)currentFrame/42)*360),glm::vec3(0.0f,1.0f,0.0f));
-	// normalShader->setMat4("model", model3);
-	// Heli->meshes[2].Draw(*normalShader);
-	// glm::mat4 model2 = glm::rotate(model,glm::radians((float)currentFrame*500),glm::vec3(0.0,1.0,0.0));
-	// normalShader->setMat4("model", model2);
-	// Heli->meshes[1].Draw(*normalShader);
+	model = glm::mat4(1.0f);
+	model = glm::translate(model, glm::vec3(cos(currentFrame*0.15)*150,50,sin(currentFrame*0.15)*150));
+	glm::mat4 model3 = glm::rotate(model, glm::radians(180.0f),glm::vec3(0.0f,1.0f,0.0f));
+	model3 = glm::rotate(model3, glm::radians(-((float)currentFrame/42)*360),glm::vec3(0.0f,1.0f,0.0f));
+	normalShader->setMat4("model", model3);
+	Heli->meshes[2].Draw(*normalShader);
+	glm::mat4 model2 = glm::rotate(model,glm::radians((float)currentFrame*500),glm::vec3(0.0,1.0,0.0));
+	normalShader->setMat4("model", model2);
+	Heli->meshes[1].Draw(*normalShader);
 
 	normalShader->setMat4("projection", projection);
 	normalShader->setMat4("view", view);
@@ -696,6 +747,7 @@ void drawModels(double currentFrame) {
 	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
 	glStencilMask(0x00);
 	skullShader->Activate();
+	lampa->Bind();
 	skullShader->setMat4("projection", projection);
 	skullShader->setMat4("view", view);
 	skullShader->setMat4("model", glm::scale(modelStencil, glm::vec3(1.03f)));
@@ -705,6 +757,10 @@ void drawModels(double currentFrame) {
 	glDisable(GL_STENCIL_TEST);
 
 	lightInit(*geomShader);
+	lampa->Bind();
+	lampa->texUnit(*geomShader,"lampa");
+	geomShader->setVec2("screen",glm::vec2(SCR_HEIGHT,SCR_HEIGHT));
+
 
 	if (explode) {
 		geomShader->setFloat("time", glm::radians(-90.0f)+currentFrame-explodeTime);
@@ -733,7 +789,7 @@ void drawWindows() {
 				  return a.first > b.first;
 			  });
 
-		normalShader->Activate();
+	normalShader->Activate();
 	normalShader->setVec3("viewPos", camera.Position);
 	normalShader->setFloat("material.shininess", 32.0f);
 	normalShader->setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
