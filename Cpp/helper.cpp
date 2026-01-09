@@ -420,18 +420,24 @@ float skyboxVertices[] = {
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-	//glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 
 	for (unsigned int i = 0; i < 6; i++)
 	{
 		std::string facesCubemap[6] =
 		{
-			"Resources/skybox/right.jpg",
+			/*"Resources/skybox/right.jpg",
 			"Resources/skybox/left.jpg",
 			"Resources/skybox/top.jpg",
 			"Resources/skybox/bottom.jpg",
 			"Resources/skybox/front.jpg",
-			"Resources/skybox/back.jpg",
+			"Resources/skybox/back.jpg",*/
+			"Resources/skybox/W.png",
+			"Resources/skybox/E.png",
+			"Resources/skybox/U.png",
+			"Resources/skybox/D.png",
+			"Resources/skybox/N.png",
+			"Resources/skybox/S.png",
 		};
 		int width, height, nrChannels;
 		unsigned char* data = stbi_load(facesCubemap[i].c_str(), &width, &height, &nrChannels, 0);
