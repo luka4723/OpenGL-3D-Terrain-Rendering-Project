@@ -420,7 +420,7 @@ float skyboxVertices[] = {
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+	//glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 
 	for (unsigned int i = 0; i < 6; i++)
 	{
@@ -432,8 +432,8 @@ float skyboxVertices[] = {
 			"Resources/skybox/bottom.jpg",
 			"Resources/skybox/front.jpg",
 			"Resources/skybox/back.jpg",*/
-			"Resources/skybox/W.png",
-			"Resources/skybox/E.png",
+			"Resources/skybox/E.jpg",
+			"Resources/skybox/W2.png",
 			"Resources/skybox/U.png",
 			"Resources/skybox/D.png",
 			"Resources/skybox/N.png",
@@ -578,7 +578,7 @@ void drawTerrain(double currentFrame) {
     skyboxVAO->Bind();
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
-    //glDrawArrays(GL_TRIANGLES, 0, 36);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
     glBindVertexArray(0);
     glDepthMask(GL_TRUE);
     glDepthFunc(GL_LESS);
