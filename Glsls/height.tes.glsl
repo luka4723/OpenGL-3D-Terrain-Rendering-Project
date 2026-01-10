@@ -9,6 +9,22 @@ uniform mat4 projection;
 in vec2 TextureCoord[];
 
 out float Height;
+out vec2 texCoord;
+out vec3 Normal2;
+out vec3 FragPos;
+
+vec3 CalcNormal(vec2 texCoords)
+{
+    float left  = textureOffset(heightMap, texCoords, ivec2(-1, 0)).y * 128.0 - 16.0;
+    float right = textureOffset(heightMap, texCoords, ivec2( 1, 0)).y * 128.0 - 16.0;
+    float up    = textureOffset(heightMap, texCoords, ivec2( 0, 1)).y * 128.0 - 16.0;
+    float down  = textureOffset(heightMap, texCoords, ivec2( 0, -1)).y * 128.0 - 16.0;
+
+    float scaleX = 1.0;
+    float scaleZ = 2.0;
+
+    return normalize(vec3((left - right)*scaleX, 2.0, -(up - down)*scaleZ)); // - jer je stbi flip true
+}
 
 void main()
 {
@@ -22,7 +38,7 @@ void main()
 
     vec2 t0 = (t01 - t00) * u + t00;
     vec2 t1 = (t11 - t10) * u + t10;
-    vec2 texCoord = (t1 - t0) * v + t0;
+    texCoord = (t1 - t0) * v + t0;
 
     Height = texture(heightMap, texCoord).y * 128.0 - 16.0;
 
@@ -39,5 +55,7 @@ void main()
     vec4 p1 = (p11 - p10) * u + p10;
     vec4 p = (p1 - p0) * v + p0 + normal * Height;
 
+    FragPos = vec3(model*p);
+    Normal2 = mat3(transpose(inverse(model))) * CalcNormal(texCoord);
     gl_Position = projection * view * model * p;
 }

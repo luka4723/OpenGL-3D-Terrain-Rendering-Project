@@ -256,41 +256,41 @@ void lightInit(Shader shader) {
 	shader.setVec3("viewPos", camera.Position);
 	shader.setFloat("material.shininess", 8.0f);
 	shader.setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
-    shader.setVec3("dirLight.ambient", 0.1f, 0.1f, 0.1f);
-    shader.setVec3("dirLight.diffuse", 0.3f, 0.3f, 0.3f);
+    shader.setVec3("dirLight.ambient", 0.0f, 0.0f, 0.0f);
+    shader.setVec3("dirLight.diffuse", 0.03f, 0.03f, 0.03f);
     shader.setVec3("dirLight.specular", 0.0f, 0.0f, 0.0f);
 
     shader.setVec3("pointLights[0].position", pointLightPositions[0]);
     shader.setVec3("pointLights[0].ambient", 0.2f, 0.0f, 0.0f);
     shader.setVec3("pointLights[0].diffuse", 0.6f, 0.0f, 0.0f);
     shader.setVec3("pointLights[0].specular", 1.0f, 0.0f, 0.0f);
-    shader.setFloat("pointLights[0].constant", 1.0f);
-    shader.setFloat("pointLights[0].linear", 0.014f);
-    shader.setFloat("pointLights[0].quadratic", 0.0007f);
+	shader.setFloat("pointLights[0].constant", 1.0f);
+	shader.setFloat("pointLights[0].linear", 0.005f);
+	shader.setFloat("pointLights[0].quadratic", 0.007f);
 
     shader.setVec3("pointLights[1].position", pointLightPositions[1]);
     shader.setVec3("pointLights[1].ambient", 0.0f, 0.2f, 0.0f);
     shader.setVec3("pointLights[1].diffuse", 0.0f, 0.6f, 0.0f);
     shader.setVec3("pointLights[1].specular", 0.0f, 1.0f, 0.0f);
-    shader.setFloat("pointLights[1].constant", 1.0f);
-    shader.setFloat("pointLights[1].linear", 0.014f);
-    shader.setFloat("pointLights[1].quadratic", 0.0007f);
+	shader.setFloat("pointLights[1].constant", 1.0f);
+	shader.setFloat("pointLights[1].linear", 0.005f);
+	shader.setFloat("pointLights[1].quadratic", 0.007f);
 
     shader.setVec3("pointLights[2].position", pointLightPositions[2]);
     shader.setVec3("pointLights[2].ambient", 0.0f, 0.0f, 0.2f);
     shader.setVec3("pointLights[2].diffuse", 0.0f, 0.0f, 0.6f);
     shader.setVec3("pointLights[2].specular", 0.0f, 0.0f, 1.0f);
-    shader.setFloat("pointLights[2].constant", 1.0f);
-    shader.setFloat("pointLights[2].linear", 0.014f);
-    shader.setFloat("pointLights[2].quadratic", 0.0007f);
+	shader.setFloat("pointLights[2].constant", 1.0f);
+	shader.setFloat("pointLights[2].linear", 0.005f);
+	shader.setFloat("pointLights[2].quadratic", 0.007f);
 
     shader.setVec3("pointLights[3].position", pointLightPositions[3]);
     shader.setVec3("pointLights[3].ambient", 0.2f, 0.0f, 0.2f);
     shader.setVec3("pointLights[3].diffuse", 0.6f, 0.0f, 0.6f);
     shader.setVec3("pointLights[3].specular", 1.0f, 0.0f, 1.0f);
-    shader.setFloat("pointLights[3].constant", 1.0f);
-    shader.setFloat("pointLights[3].linear", 0.014f);
-    shader.setFloat("pointLights[3].quadratic", 0.0007f);
+	shader.setFloat("pointLights[3].constant", 1.0f);
+	shader.setFloat("pointLights[3].linear", 0.005f);
+	shader.setFloat("pointLights[3].quadratic", 0.007f);
 
     shader.setVec3("spotLight.position", camera.Position);
     shader.setVec3("spotLight.direction", camera.Front);
@@ -305,9 +305,9 @@ void lightInit(Shader shader) {
 }
 
 void terrainDataInit() {
-     tessHeightMapShader = new Shader("Glsls/height.vs.glsl","Glsls/height.fs.glsl", nullptr, "Glsls/height.tcs.glsl", "Glsls/height.tes.glsl");
-	 waterShader =new Shader("Glsls/water-vert.glsl","Glsls/water-frag.glsl", nullptr, nullptr, nullptr);
-	 skyShader=new Shader("Glsls/sky-vert.glsl","Glsls/sky-frag.glsl",nullptr,nullptr,nullptr);
+	tessHeightMapShader = new Shader("Glsls/height.vs.glsl","Glsls/height.fs.glsl", nullptr, "Glsls/height.tcs.glsl", "Glsls/height.tes.glsl");
+	waterShader =new Shader("Glsls/water-vert.glsl","Glsls/water-frag.glsl", nullptr, nullptr, nullptr);
+	skyShader=new Shader("Glsls/sky-vert.glsl","Glsls/sky-frag.glsl",nullptr,nullptr,nullptr);
 	normalShader = new Shader("Glsls/vShader.glsl","Glsls/fShader.glsl",nullptr,nullptr,nullptr);
 	geomShader = new Shader("Glsls/geomVShader.glsl","Glsls/fShader.glsl","Glsls/geomShader.glsl",nullptr,nullptr);
 	skullShader = new Shader("Glsls/grayVShader.glsl","Glsls/grayFShader.glsl",nullptr,nullptr,nullptr);
@@ -315,7 +315,7 @@ void terrainDataInit() {
 	cobbleShader = new Shader("Glsls/cobbleVShader.glsl","Glsls/cobbleFShader.glsl",nullptr,nullptr,nullptr);
 
 	heightmap = new Texture("Resources/render.png",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
-	gradient =  new Texture("Resources/gradient.png",GL_TEXTURE_2D,GL_TEXTURE1,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
+	gradient =  new Texture("Resources/gradient.png",GL_TEXTURE_2D,GL_TEXTURE5,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 	Prozor =  new Texture("Resources/prozor.png",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 	lisce = new Texture("Resources/lisce.jpg",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_CLAMP_TO_EDGE,1);
 	water = new Texture("Resources/water-normal2.jpg",GL_TEXTURE_2D,GL_TEXTURE0,GL_UNSIGNED_BYTE,GL_REPEAT,1);
@@ -333,7 +333,7 @@ void terrainDataInit() {
 
 	modelCobble = glm::scale(modelCobble,glm::vec3(20.0,10.0,20.0));
 
-	gradient->texUnit(*tessHeightMapShader,"gradient");
+	gradient->texUnit(*tessHeightMapShader,"material.texture_diffuse1");
 	water->texUnit(*waterShader,"normal_map");
 
 	precomputeHeightGrid();
@@ -584,7 +584,7 @@ void drawTerrain(double currentFrame) {
     glDepthFunc(GL_LESS);
 
     view = camera.GetViewMatrix();
-	tessHeightMapShader->Activate();
+	lightInit(*tessHeightMapShader);
 	tessHeightMapShader->setMat4("projection", projection);
 	tessHeightMapShader->setMat4("view", view);
 	tessHeightMapShader->setVec3("cameraPos", camera.Position);
@@ -592,6 +592,9 @@ void drawTerrain(double currentFrame) {
     terrainVAO->Bind();
     heightmap->Bind();
 	gradient->Bind();
+	lampa->Bind();
+	lampa->texUnit(*tessHeightMapShader,"lampa");
+	tessHeightMapShader->setVec2("screen",glm::vec2(SCR_HEIGHT,SCR_HEIGHT));
     glDrawArrays(GL_PATCHES, 0, NUM_PATCH_PTS*rez*rez);
 
 	lightShader->Activate();
