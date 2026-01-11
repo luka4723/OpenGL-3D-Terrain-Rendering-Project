@@ -678,11 +678,15 @@ void drawTerrain(double currentFrame) {
 void drawWater(double currentFrame) {
 	glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100000.0f);
 	glm::mat4 view = camera.GetViewMatrix();
-	waterShader->Activate();
+	lightInit(*waterShader);
+	if (camera.Position.y > 3.3f) waterShader->setVec3("normal", 0.0f, 1.0f, 0.0f);
+	else waterShader->setVec3("normal", 0.0f, -1.0f, 0.0f);
 	waterShader->setMat4("uni_VP", projection * view);
 	waterShader->setMat4("uni_M", glm::mat4(1.0f));
 	waterShader->setVec3("uni_camera_pos", camera.Position);
 	waterShader->setFloat("uni_phase", currentFrame*0.1f);
+	lampa->texUnit(*waterShader,"lampa");
+	waterShader->setVec2("screen",glm::vec2(SCR_HEIGHT,SCR_HEIGHT));
 
 	waterVAO->Bind();
 	water->Bind();
@@ -745,6 +749,8 @@ void drawModels(double currentFrame) {
 	normalShader->setMat4("projection", projection);
 	normalShader->setMat4("view", view);
 
+	lightInit(*normalShader);
+
 	glEnable(GL_STENCIL_TEST);
 	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 	glStencilFunc(GL_ALWAYS, 1, 0xFF);
@@ -800,7 +806,7 @@ void drawWindows() {
 	normalShader->setVec3("viewPos", camera.Position);
 	normalShader->setFloat("material.shininess", 32.0f);
 	normalShader->setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
-    normalShader->setVec3("dirLight.ambient", 0.3f, 0.3f, 0.3f);
+    normalShader->setVec3("dirLight.ambient", 0.15f, 0.15f, 0.15f);
     normalShader->setVec3("dirLight.diffuse", 0.0f, 0.0f, 0.0f);
     normalShader->setVec3("dirLight.specular", 0.0f, 0.0f, 0.0f);
 
