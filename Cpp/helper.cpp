@@ -79,17 +79,23 @@ glm::vec3 pointLightPositions[4] = {
 };
 
 
-bool checkTerrain(glm::vec3 pos) {
-
-	//printf("GGGG %f, %f, %f\n",pos.x,pos.y,pos.z);
+bool checkTerrain(glm::vec3& pos, glm::vec3 dir) {
+	bool p= true;
+	pos+=dir;
 	if (pos.x > -60.5 && pos.x < -19.5 && pos.z < 40.5 && pos.z > -0.5 && pos.y < 8) {
-
-		return false;
+		if (pos.y<8) {
+			pos -= dir.y;
+			p=false;
+		}
+		if (p) {
+			if (pos.x>-60.5 && pos.x<-19.5) pos -= dir.x;
+			if (pos.z<40.5 && pos.z>-0.5) pos -= dir.z;
+		}
 	}
-	return true;
+	return p;
 }
 void handleY(glm::vec3 pos) {
-	if (pos.y < 8 && !checkTerrain(pos)) {
+	if (pos.y < 8 && !checkTerrain(pos,glm::vec3(0,dy,0))) {
 		dy=0;
 		pos.y = 8;
 	}
@@ -97,28 +103,24 @@ void handleY(glm::vec3 pos) {
 }
 void processInput(GLFWwindow *window) {
 	float velocity = SPEED * deltaTime * is_shift;
-
+	glm::vec3 tempPos = camera.Position;
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
-		glm::vec3 tempPos = camera.Position + camera.Front * velocity;
-		if (checkTerrain(tempPos)) camera.Position = tempPos; //camera.ProcessKeyboard(FORWARD, deltaTime);
+		if (checkTerrain(tempPos,camera.Front*velocity)) camera.Position = tempPos; //camera.ProcessKeyboard(FORWARD, deltaTime);
 	}
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
     {
-    	glm::vec3 tempPos = camera.Position - camera.Front * velocity;
-    	if (checkTerrain(tempPos)) camera.Position = tempPos; //camera.ProcessKeyboard(BACKWARD, deltaTime);
+    	if (checkTerrain(tempPos,-camera.Front * velocity)) camera.Position = tempPos; //camera.ProcessKeyboard(BACKWARD, deltaTime);
     }
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
     {
-    	glm::vec3 tempPos = camera.Position - camera.Right * velocity;
-    	if (checkTerrain(tempPos)) camera.Position = tempPos; //camera.ProcessKeyboard(LEFT, deltaTime);
+    	if (checkTerrain(tempPos, - camera.Right * velocity)) camera.Position = tempPos; //camera.ProcessKeyboard(LEFT, deltaTime);
     }
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
     {
-    	glm::vec3 tempPos = camera.Position + camera.Right * velocity;
-    	if (checkTerrain(tempPos)) camera.Position = tempPos; //camera.ProcessKeyboard(RIGHT, deltaTime);
+    	if (checkTerrain(tempPos,camera.Right * velocity)) camera.Position = tempPos; //camera.ProcessKeyboard(RIGHT, deltaTime);
     }
     if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
     	if (is_on_ground) dy = 12.0f;

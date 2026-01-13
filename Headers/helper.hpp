@@ -41,5 +41,7 @@ void drawModels(double currentFrame);
 float getTerrainHeight(float worldX, float worldZ);
 void drawWindows();
 void handleY(glm::vec3 pos);
+bool checkTerrain(glm::vec3& pos, glm::vec3 dir);
+
 
 #endif

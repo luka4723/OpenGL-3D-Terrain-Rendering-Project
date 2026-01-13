@@ -18,7 +18,6 @@
 #include "model.hpp"
 
 
-
 int main()
 {
     if (windowinit(SCR_WIDTH, SCR_HEIGHT, "Moj OpenGL Prozor") != 0) return -1;
@@ -53,7 +52,7 @@ int main()
 		 	if (camera.Position.y > 4.0f) dy-=0.5f;
 		 }
 		//printf("%f\n", dy);
-		printf("%f,%f,%f\n", camera.Position.x, camera.Position.y, camera.Position.z);
+		//printf("%f,%f,%f\n", camera.Position.x, camera.Position.y, camera.Position.z);
 
 		drawTerrain(currentFrame);
 		drawModels(currentFrame);
