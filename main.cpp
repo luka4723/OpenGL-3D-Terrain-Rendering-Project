@@ -27,6 +27,7 @@ int main()
 	glPatchParameteri(GL_PATCH_VERTICES, NUM_PATCH_PTS);
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
+	lastFrame = glfwGetTime(); // otherwise the first deltaTime contains the whole loading time
 	while (!glfwWindowShouldClose(window))
 	{
 		float currentFrame = glfwGetTime();
@@ -49,7 +50,7 @@ int main()
 		 }
 		 else {
 		 	is_on_ground = false;
-		 	if (camera.Position.y > 4.0f) dy-=0.5f;
+		 	if (camera.Position.y > 4.0f) dy-=30.0f*deltaTime; // gravity per second (was 0.5 per frame, i.e. 30/s at 60 FPS)
 		 }
 		//printf("%f\n", dy);
 		//printf("%f,%f,%f\n", camera.Position.x, camera.Position.y, camera.Position.z);

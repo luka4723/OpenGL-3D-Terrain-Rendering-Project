@@ -1,77 +1,67 @@
-# 3D Terrain Rendering Project
+# 3D Terrain Rendering
 
-A 3D graphics project demonstrating terrain generation, physics simulation, advanced rendering techniques, and procedural object placement. The project combines multiple real-time rendering features including lighting, shading, animation, and GPU-based effects.
+A real-time OpenGL 4.6 scene in C++: a tessellated heightmap terrain at night, explored in first person, with water, a skybox, several kinds of lights, normal mapping, models loaded with Assimp and a few shader effects.
+
+<p align="center">
+  <img src="media/demo.gif" alt="Helicopter, normal-mapped cobblestone under the flashlight, skulls turning towards the camera, trees under coloured lights" width="640">
+</p>
+
+The full demo video is in [`media/demo.mp4`](media/demo.mp4).
 
 ## Features
 
-### Procedural Terrain Generation
-- Terrain is generated from a grayscale heightmap image.
-- Uses tessellation to dynamically add surface detail.
-- Terrain elevation is used for physics interactions and object placement.
+**Terrain**
+- Generated from a grayscale heightmap. Tessellation shaders (control and evaluation) add detail to the terrain mesh on the GPU.
+- The camera walks on the terrain surface, with simple gravity, jumping, running and swimming at the water level.
 
-### Physics and Environment Simulation
-- Gravity simulation with:
-  - Walking on terrain
-  - Swimming
-  - Jumping
-  - Running
-- Water surface simulation with animated waves.
-- Skybox environment rendering.
+**Lighting and materials**
+- A directional light, four coloured point lights and a flashlight (a spot light attached to the camera, with a light texture).
+- Normal mapping and specular mapping on a cobblestone surface.
+- Models with several meshes and textures, loaded with Assimp.
 
-### Rendering Techniques
+**Effects**
+- Animated water (three moving layers of a normal map) and transparent windows, rendered with alpha blending; the windows are sorted back to front.
+- Skybox.
+- Object outline with the stencil buffer.
+- Explosion of a model in a geometry shader (press **P**).
 
-#### Blending
-- Alpha blending implemented for:
-  - Water waves
-  - Transparent windows
-- Correct rendering order is handled to ensure proper transparency.
+**Scene**
+- Grass, trees and windows placed at random positions.
+- A helicopter whose rotor meshes are animated separately, and skulls that turn towards the camera.
 
-#### Stencil Effects
-- Object outlining implemented using the stencil buffer.
+## Controls
 
-#### Geometry Shader Effects
-- Explosion effect implemented using geometry shaders.
+| Key | Action |
+|---|---|
+| W A S D | move |
+| Mouse | look around |
+| Scroll | zoom |
+| Left Shift | run |
+| Space | jump |
+| P | explosion |
+| Esc | quit |
 
-#### Advanced Lighting
-Complete lighting system supporting:
-- Ambient lighting
-- Diffuse lighting
-- Specular lighting
-- Directional lights
-- Point lights
-- Spot lights
+## Building
 
-### Materials and Shading
-- Normal mapping and specular mapping implemented for stone surfaces.
-- Models can use multiple textures across different meshes.
+Requirements: CMake 3.14 or newer, a C++17 compiler and a GPU with OpenGL 4.6. GLFW, GLM and Assimp are downloaded and built by CMake (an installed Assimp is used if CMake finds one); GLAD and stb_image are included in the repository.
 
-### Procedural Object Placement
-- Random generation and placement of:
-  - Grass
-  - Trees
-  - Windows above the water surface
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --config Release
+```
 
-### Model Animation and Interaction
-- Mesh-based model animation:
-  - Helicopter model with independently moving mesh components.
-- Skull models that continuously track and face the camera direction.
-- Animated models without relying on textures.
+The first configure downloads the dependencies and the first build compiles Assimp, so both take a few minutes.
 
-## Technologies Used
+## Running
 
-- C++
-- OpenGL
-- GLSL Shaders
-- Tessellation Shaders
-- Geometry Shaders
-- Stencil Buffering
-- Normal Mapping
-- Specular Mapping
-- Procedural Generation
-- Real-time Lighting
+The build copies the shaders (`Glsls/`) and the resources (`Resources/`) next to the executable, and the program loads them with relative paths, so run it from `build/bin`:
 
-## Running the Project
+```bash
+cd build/bin
+./terrain_rendering
+```
 
-1. Configure the project using CMake.
-2. Build the project.
-3. Run the generated executable.
+## Known issues
+
+- Gravity is applied once per frame instead of per second, so the camera's vertical movement depends on the frame rate. It was tuned on the machine the project was developed on; on noticeably faster or slower hardware, jumping, falling and the way the camera follows the terrain can look different (for example, the camera can float or bounce when looking up while walking).
+- The projection matrices use the initial window size (1024×768), so resizing or maximizing the window stretches the image.

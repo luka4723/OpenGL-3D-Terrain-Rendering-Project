@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
 
-project(RG25D2-Luka-Milic-47-2023-RN LANGUAGES C CXX)
+project(terrain_rendering LANGUAGES C CXX)
 
 # --------------------------------------------------
 # C++ standard
@@ -12,6 +12,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Output folder (bin)
 # --------------------------------------------------
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+# Visual Studio would put the executable in bin/Debug or bin/Release, away from the copied resources
+foreach (config ${CMAKE_CONFIGURATION_TYPES})
+    string(TOUPPER ${config} config)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${config} ${CMAKE_BINARY_DIR}/bin)
+endforeach ()
 
 # --------------------------------------------------
 # GLAD
@@ -24,30 +29,54 @@ target_include_directories(glad PUBLIC
 )
 
 # --------------------------------------------------
-# GLFW
+# GLFW (downloaded at configure time)
 # --------------------------------------------------
-add_subdirectory(libs/glfw-3.4/glfw-3.4)
+include(FetchContent)
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_WAYLAND OFF CACHE BOOL "Build GLFW with Wayland support (Linux)")
+FetchContent_Declare(glfw
+        GIT_REPOSITORY https://github.com/glfw/glfw.git
+        GIT_TAG 3.4
+        GIT_SHALLOW TRUE
+)
 
 # --------------------------------------------------
-# ASSIMP (precompiled)
+# GLM (downloaded at configure time, header-only)
 # --------------------------------------------------
-if (MSVC)
-    set(ASSIMP_LIB
-        ${CMAKE_SOURCE_DIR}/libs/Assimp/lib/x64/assimp-vc143-mt.lib
+FetchContent_Declare(glm
+        GIT_REPOSITORY https://github.com/g-truc/glm.git
+        GIT_TAG 1.0.1
+        GIT_SHALLOW TRUE
+)
+FetchContent_MakeAvailable(glfw glm)
+
+# --------------------------------------------------
+# ASSIMP (installed one if CMake finds it, otherwise built from source with only the OBJ importer)
+# --------------------------------------------------
+find_package(assimp CONFIG QUIET)
+if (NOT assimp_FOUND)
+    set(ASSIMP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_ASSIMP_TOOLS OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_SAMPLES OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_INSTALL OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_WARNINGS_AS_ERRORS OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_NO_EXPORT ON CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_ZLIB ON CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_ALL_IMPORTERS_BY_DEFAULT OFF CACHE BOOL "" FORCE)
+    set(ASSIMP_BUILD_OBJ_IMPORTER ON CACHE BOOL "" FORCE)
+    FetchContent_Declare(assimp
+            GIT_REPOSITORY https://github.com/assimp/assimp.git
+            GIT_TAG v5.4.3
+            GIT_SHALLOW TRUE
     )
-    set(ASSIMP_DLL
-        ${CMAKE_SOURCE_DIR}/libs/Assimp/bin/x64/assimp-vc143-mt.dll
-    )
-elseif (MINGW)
-    set(ASSIMP_LIB
-        ${CMAKE_SOURCE_DIR}/libs/Assimp/lib/x64/libassimp.a
-    )
-    set(ASSIMP_DLL
-        ${CMAKE_SOURCE_DIR}/libs/Assimp/bin/x64/libassimp.dll
-    )
-else()
-    message(FATAL_ERROR "Unsupported compiler (only MSVC and MinGW supported)")
+    FetchContent_MakeAvailable(assimp)
 endif()
+
+find_package(OpenGL REQUIRED)
 
 # --------------------------------------------------
 # Executable
@@ -73,9 +102,6 @@ add_executable(${PROJECT_NAME}
 # --------------------------------------------------
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${CMAKE_SOURCE_DIR}/libs/glad/include
-        ${CMAKE_SOURCE_DIR}/libs/glfw-3.4/glfw-3.4/include
-        ${CMAKE_SOURCE_DIR}/libs/glm
-        ${CMAKE_SOURCE_DIR}/libs/Assimp/include
         ${CMAKE_SOURCE_DIR}/Headers
 )
 
@@ -85,8 +111,9 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME}
         glad
         glfw
-        opengl32
-        ${ASSIMP_LIB}
+        glm::glm
+        OpenGL::GL
+        assimp::assimp
 )
 
 # --------------------------------------------------
@@ -103,22 +130,9 @@ add_custom_target(copy_resources ALL
                 ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Glsls
 )
 
-# --------------------------------------------------
-# Copy ASSIMP DLL after build
-# --------------------------------------------------
-add_custom_command(
-        TARGET ${PROJECT_NAME}
-        POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
-                ${ASSIMP_DLL}
-                $<TARGET_FILE_DIR:${PROJECT_NAME}>
-)
-
 add_dependencies(${PROJECT_NAME} copy_resources)
 
 # --------------------------------------------------
 # Info
 # --------------------------------------------------
-message(STATUS "Assimp lib: ${ASSIMP_LIB}")
-message(STATUS "Assimp dll: ${ASSIMP_DLL}")
 message(STATUS "Binary output: ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")

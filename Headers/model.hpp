@@ -5,14 +5,14 @@
 #include <vector>
 
 
-#include "Assimp/scene.h"
-#include "Assimp/Importer.hpp"
-#include "Assimp/postprocess.h"
+#include <assimp/scene.h>
+#include <assimp/Importer.hpp>
+#include <assimp/postprocess.h>
 
 #include "mesh.hpp"
-#include "Shader.hpp"
+#include "shader.hpp"
 
-// helper funkcija (deklaracija)
+// helper function (declaration)
 unsigned int TextureFromFile(
     const char* path,
     const std::string& directory,

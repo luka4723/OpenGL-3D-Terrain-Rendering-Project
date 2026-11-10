@@ -23,7 +23,7 @@ vec3 CalcNormal(vec2 texCoords)
     float scaleX = 1.0;
     float scaleZ = 2.0;
 
-    return normalize(vec3((left - right)*scaleX, 2.0, -(up - down)*scaleZ)); // - jer je stbi flip true
+    return normalize(vec3((left - right)*scaleX, 2.0, -(up - down)*scaleZ)); // minus because stbi flip is true
 }
 
 void main()
